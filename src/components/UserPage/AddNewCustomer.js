@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
+
 // import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 // import { withStyles } from '@material-ui/core/styles';
@@ -22,20 +24,21 @@ class AddNewCustomer extends Component {
       // Notes: '',
     }
   }
-//   getAdminInfo = () => {
-//     axios({
-//         method: 'POST',
-//         url: ''
-//     }).then((response) => {
-//         const action = {
-//             type: 'SET_TAGS',
-//             payload: response.data
-//         };
-//         this.props.dispatch(action);
-//     }).catch((error) => {
-//         console.log('error in get admin', error);
-//     })
-// }
+  getAdminInfo = () => {
+    axios({
+        method: 'POST',
+        url: '/intake'
+    }).then((response) => {
+      console.log(response)
+        // const action = {
+        //     type: 'SET_TAGS',
+        //     payload: response.data
+        // };
+        // this.props.dispatch(action);
+    }).catch((error) => {
+        console.log('error in get admin', error);
+    })
+}
 
   handleChange = (event) => {
     this.setState({

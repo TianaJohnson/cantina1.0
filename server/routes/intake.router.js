@@ -31,7 +31,7 @@ router.post('/', (req, res, next) => {
             console.log( 'server side Post');
             res.sendStatus(201);
         })
-        .catch((err) => {
+        .catch((error) => {
             console.log('Something went wrong in post', error);
             
             res.sendStatus(500);;
