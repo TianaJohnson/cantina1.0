@@ -8,8 +8,8 @@ body {
     margin: 50px;
 }
 
-form {
-    background-color: #dbd5d5;
+.form_Login {
+    background-color: #298ee0;
     width: 30%;
     height: 250px;
     margin: 20px auto;
@@ -47,4 +47,16 @@ input {
     outline:0;
     border-bottom:1px solid #444; 
     cursor: pointer;
+}
+.form_newCust {
+    background-color: #298ee0;
+    width: 85%;
+    height: auto;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px; 
+}
+.new-cust-intake {
+    margin:20px;
+    text-align: center;
 }

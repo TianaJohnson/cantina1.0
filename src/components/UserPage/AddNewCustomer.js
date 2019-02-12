@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
+// import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 // import { withStyles } from '@material-ui/core/styles';
 // import LogOutButton from '../LogOutButton/LogOutButton';
 
@@ -14,16 +16,31 @@ class AddNewCustomer extends Component {
     super(props);
       this.state = {
         fullName: '',
-      // prefPro: '',
+        // prefPro: '',
       // eMail: '',
       // phoneNum: '',
       // Notes: '',
     }
   }
+//   getAdminInfo = () => {
+//     axios({
+//         method: 'POST',
+//         url: ''
+//     }).then((response) => {
+//         const action = {
+//             type: 'SET_TAGS',
+//             payload: response.data
+//         };
+//         this.props.dispatch(action);
+//     }).catch((error) => {
+//         console.log('error in get admin', error);
+//     })
+// }
 
   handleChange = (event) => {
     this.setState({
       fullName: event.target.value,
+      // prefPro: 
     })
   }
 
@@ -33,9 +50,11 @@ class AddNewCustomer extends Component {
   render() {
 
     return (
-      <form >
+      <form
+      className="form_newCust" >
         New Customer:
         <TextField
+          className="new-cust-intake"
           id="outlined-name"
           label="Name"
           placeholder="Full Name"
@@ -46,6 +65,7 @@ class AddNewCustomer extends Component {
           type="text"
         />
         <TextField
+        className="new-cust-intake"
         id="outline-pronouns"
         label="pronouns"
         placeholder="pronouns"
@@ -53,6 +73,7 @@ class AddNewCustomer extends Component {
         margin="normal"
         />
         <TextField
+        className="new-cust-intake"
         id="outline-email"
         label="email"
         placeholder="email address"
@@ -60,13 +81,15 @@ class AddNewCustomer extends Component {
         margin="normal"
         />
         <TextField
+        className="new-cust-intake"
         id="outline-phonenumber"
         label="Phone Number"
         placeholder="pronouns"
         variant="outlined"
         margin="normal"
         />
-      </form>// end material ui intake form for new customer
+      </form>
+      // end material ui intake form for new customer
     )
   }
 
