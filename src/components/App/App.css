@@ -24,6 +24,7 @@ input {
 
 .log-in, .log-out, .register {
   background-color: #00acb0;
+  margin: 30px;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;

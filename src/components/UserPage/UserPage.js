@@ -10,8 +10,10 @@ const UserPage = (props) => (
     <h1 id="welcome">
       Welcome, { props.user.username }!
     </h1>
-    <p>Your ID is: {props.user.id}</p>
-    <LogOutButton className="log-in" />
+    {/* <p>Your ID is: {props.user.id}</p>
+    <LogOutButton className="log-in" /> */}
+    <button className="add-new-cust">Add New Customer</button>
+    <p>Display open projects on page with cards, here.</p>
   </div>
 );
 
