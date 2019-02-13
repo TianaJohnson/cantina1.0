@@ -1,6 +1,6 @@
 const addCustomerReducer = (state = {}, action) => {
     switch (action.type) {
-      case 'ADD_CUSTOMER':
+      case 'SET_CUSTOMER':
         return action.payload;
     
       default:
