@@ -50,13 +50,11 @@ input {
 }
 .form_newCust {
     background-color: #298ee0;
-    width: 85%;
+    width: auto;
     height: auto;
-    margin: 20px auto;
+    margin: 15px;
     padding: 25px;
     border-radius: 2px; 
+    
 }
-.new-cust-intake {
-    margin:20px;
-    text-align: center;
-}
+
