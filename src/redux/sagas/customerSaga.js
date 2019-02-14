@@ -17,6 +17,7 @@ function* addCustomer(action) {
     try{
     const responseFromServer = yield axios.get('/intake');
     yield put({ type: 'SET_CUSTOMER', payload: responseFromServer.data});
+    console.log('response from server is:',responseFromServer.data)
   } catch (error) {
     console.log('Unabale to fetch customers from server', error);
     alert('Unabale to fetch customers from server', error);

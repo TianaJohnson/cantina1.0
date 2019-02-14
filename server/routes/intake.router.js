@@ -2,17 +2,6 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-
-/**
- * GET route template
- */
-router.get('/', (req, res) => {
-    
-});
-
-/**
- * POST route template
- */
 router.post('/', (req, res, next) => {
     console.log(req.body);
     const queryText = `INSERT INTO "customer_info"
@@ -39,10 +28,14 @@ router.post('/', (req, res, next) => {
 });
 
 router.get('/', (req, res) => {
+    console.log('in GET ')
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user);
-        pool.query(`SELECT * FROM "customer_info";`,[req.user])
-            .then(results => res.send(results.rows))
+        pool.query(`SELECT * FROM "customer_info";`)
+            .then(results => {
+                console.log(results.rows)
+                res.send(results.rows)
+            })
             .catch(error => {
                 console.log('Error making SELECT for customer info database:', error);
                 res.sendStatus(500);
