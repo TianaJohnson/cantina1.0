@@ -6,11 +6,27 @@ import Button from '@material-ui/core/Button';
 
 // import Paper from '@material-ui/core/Paper';
 // import Grid from '@material-ui/core/Grid';
-// import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 // import LogOutButton from '../LogOutButton/LogOutButton';
 
 
 // using this as a template //
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  dense: {
+    marginTop: 16,
+  },
+  menu: {
+    width: 200,
+  },
+});
 
 class AddNewCustomer extends Component {
 
@@ -45,6 +61,7 @@ class AddNewCustomer extends Component {
       payload: this.state,      
     };
     this.props.dispatch(action);
+    
     // this.refs.customers_full_name.value = '';
     // this.refs.pro_nouns.value = '';
     // this.refs.email.value = '';
@@ -57,7 +74,7 @@ class AddNewCustomer extends Component {
       phone_number: '',
       customer_notes: '',
     })
-    // this.props.history.push('/');
+  this.props.history.push('/');
   }
 
   // // input state update
@@ -92,11 +109,11 @@ class AddNewCustomer extends Component {
     })
    }
 
-
+   
   render() {
 
     return (
-      <form onSubmit={this.updateCust}
+      <form 
         className="form_newCust" >
         New Customer:
         <TextField
@@ -168,4 +185,4 @@ const mapStateToProps = reduxStore => {
 }
 
 // this allows us to use <App /> in index.js
-export default (connect(mapStateToProps)(AddNewCustomer));
+export default withStyles(styles)(connect(mapStateToProps)(AddNewCustomer));

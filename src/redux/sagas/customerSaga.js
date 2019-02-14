@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 
 function* addCustomer(action) {
     try {
@@ -13,6 +13,7 @@ function* addCustomer(action) {
       // when the server recognizes the user session
       // it will end the session
       yield axios.post('/intake', action.payload);
+      yield alert('Customer added.')
       //yield put({ type: '' });-- for get
   
     } catch (error) {
