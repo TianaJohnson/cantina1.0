@@ -20,7 +20,7 @@ class Admin extends Component {
     render(){
       return(
         <div>
-        {JSON.stringify(this.props.reduxStore.customerReducer)}
+        {/* {JSON.stringify(this.props.reduxStore.addCust)} */}
   <Paper>
       <Table className="">
         <TableHead>
@@ -32,12 +32,17 @@ class Admin extends Component {
           </TableRow>
         </TableHead>
         <TableBody>
-            <TableRow>
-              <TableCell align="right"></TableCell>
-              <TableCell align="right"></TableCell>
-              <TableCell align="right"></TableCell>
-              <TableCell align="right"></TableCell>
-            </TableRow>
+
+              {this.props.reduxStore.addCust.map((client, i) =>{
+                return(<TableRow key={i}>
+                <TableCell>{client.customers_full_name}</TableCell>
+                <TableCell>{client.pro_nouns}</TableCell>
+                <TableCell>{client.email}</TableCell>
+                <TableCell>{client.phone_number}</TableCell>
+                </TableRow>)
+              })}
+              
+            
         </TableBody>
       </Table>
     </Paper>
@@ -50,7 +55,6 @@ class Admin extends Component {
 const mapStateToProps = reduxStore => {
   return { reduxStore: reduxStore };
 }
-
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(Admin);
 
