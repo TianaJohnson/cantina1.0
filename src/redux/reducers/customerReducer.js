@@ -1,4 +1,5 @@
-const addCustomerReducer = (state = {}, action) => {
+const customerReducer = (state = [], action) => {
+  console.log('reducer');
     switch (action.type) {
       case 'SET_CUSTOMER':
         return action.payload;
@@ -10,4 +11,4 @@ const addCustomerReducer = (state = {}, action) => {
   
   // user will be on the redux state at:
   // state.user
-  export default addCustomerReducer;
+  export default customerReducer;

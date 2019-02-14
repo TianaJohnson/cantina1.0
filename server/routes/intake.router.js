@@ -38,4 +38,19 @@ router.post('/', (req, res, next) => {
         });
 });
 
+router.get('/', (req, res) => {
+    if (req.isAuthenticated()) {
+        console.log('req.user:', req.user);
+        pool.query(`SELECT * FROM "customer_info";`,[req.user])
+            .then(results => res.send(results.rows))
+            .catch(error => {
+                console.log('Error making SELECT for customer info database:', error);
+                res.sendStatus(500);
+            });
+    } else {
+      // They are not authenticated.
+      res.sendStatus(403);
+    }
+  });
+
 module.exports = router;
