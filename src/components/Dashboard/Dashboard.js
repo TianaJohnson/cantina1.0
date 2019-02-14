@@ -9,8 +9,8 @@ class Dashboard extends Component {
 
     render(){
         return(
-            <div>
-            <p>Dashboard</p>
+            <div className="dashboard_main">
+            <h1>Dashboard</h1>
             <button onClick={this.addNew}>Add New Customer</button>
             </div>
         )
