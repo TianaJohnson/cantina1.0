@@ -41,18 +41,7 @@ class AddNewCustomer extends Component {
       customer_notes: '',
     }
   }
-  //   addCust = () => {
-  //     axios({
-  //         method: 'POST',
-  //         url: '/intake',
-  //         data: this.state
-  //     }).then((response) => {
-  //       console.log('In Post', response)       
-  //     }).catch((error) => {
-  //         console.log('error in get admin', error);
-  //     })
-  // }
-
+ 
   //Send to saga
   updateCust = (event) => {
     console.log('update cust');
@@ -61,12 +50,6 @@ class AddNewCustomer extends Component {
       payload: this.state,      
     };
     this.props.dispatch(action);
-    
-    // this.refs.customers_full_name.value = '';
-    // this.refs.pro_nouns.value = '';
-    // this.refs.email.value = '';
-    // this.refs.phone_number = '';
-    // this.refs.customer_notes = '';
     this.setState({
       customers_full_name: '',
       pro_nouns: '',

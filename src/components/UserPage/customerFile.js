@@ -1,30 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import NoSsr from '@material-ui/core/NoSsr';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-
-function LinkTab(props) {
-    return <Tab component="a" onClick={event => event.preventDefault()} {...props} />;
-  }
+import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
 
 class customerFile extends Component {
 
+  projectPage = () => {
+    this.props.history.push('/project');
+  }
+
     render () {
         return(
-            <div >
-          <AppBar position="static">
-            <Tabs variant="fullWidth">
-              <LinkTab label="Page One" href="page1" />
-              <LinkTab label="Page Two" href="page2" />
-              <LinkTab label="Page Three" href="page3" />
-            </Tabs>
-          </AppBar>
-          {/* {value === 0 && <TabContainer>Page One</TabContainer>}
-          {value === 1 && <TabContainer>Page Two</TabContainer>}
-          {value === 2 && <TabContainer>Page Three</TabContainer>} */}
+        <div>
+          <Card>
+          <Button onClick={this.projectPage}
+          variant="contained" 
+          color="secondary" 
+          className="newProjectBtn" >
+          Project  
+      </Button>
+      <Button variant="contained" color="secondary" className="fitDataBtn">
+        Fit Data
+      </Button>
+      <Button variant="contained" color="secondary" className="buildStatusBtn">
+        Build Status
+      </Button>
+      <Button variant="contained" color="secondary" className="custNotesBtn">
+        Notes
+      </Button>
+      <Button variant="contained" color="secondary" className="custInfoBtn">
+        Customer Contact
+      </Button>
+          </Card>          
         </div>
         );
         

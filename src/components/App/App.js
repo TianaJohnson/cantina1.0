@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import AddNewCustomer from'./../UserPage/AddNewCustomer';
 import Dashboard from './../Dashboard/Dashboard';
 import CustomerFile from './../UserPage/CustomerFile';
+import ProjectPage from './../ProjectPage/ProjectPage';
 
 import './App.css';
 
@@ -38,7 +39,7 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-            <Route
+            <ProtectedRoute
               exact
               path="/admin"
               component={AdminPage}
@@ -73,6 +74,11 @@ class App extends Component {
               exact
               path="/file"
               component={CustomerFile}
+            />
+            <ProtectedRoute
+              exact
+              path="/project"
+              component={ProjectPage}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
