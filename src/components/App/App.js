@@ -18,6 +18,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import InfoPage from '../InfoPage/InfoPage';
 import AddNewCustomer from'./../UserPage/AddNewCustomer';
 import Dashboard from './../Dashboard/Dashboard';
+import CustomerFile from './../UserPage/CustomerFile';
 
 import './App.css';
 
@@ -67,6 +68,11 @@ class App extends Component {
               exact
               path="/newcustomer"
               component={AddNewCustomer}
+            />
+            <ProtectedRoute
+              exact
+              path="/file"
+              component={CustomerFile}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
