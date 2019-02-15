@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CustomerToolBar from './../CustomerToolBar/CustomerToolBar';
+
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 
@@ -12,6 +14,7 @@ class customerFile extends Component {
     render () {
         return(
         <div>
+          <CustomerToolBar/>
           <Card>
           <Button onClick={this.projectPage}
           variant="contained" 

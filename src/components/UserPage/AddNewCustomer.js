@@ -99,7 +99,9 @@ class AddNewCustomer extends Component {
       <form 
         className="form_newCust" >
         New Customer:
+        <br/>
         <TextField
+          style={{ margin: 10 }}
           className="new-cust-intake"
           id="outlined-name"
           label="Name"
@@ -111,6 +113,7 @@ class AddNewCustomer extends Component {
           onChange={this.handleChangeName}
         />
         <TextField
+          style={{ margin: 10 }}
           className="new-cust-intake"
           id="outline-pronouns"
           label="pronouns"
@@ -120,6 +123,7 @@ class AddNewCustomer extends Component {
           onChange={this.handleChangePro}
         />
         <TextField
+          style={{ margin: 10 }}
           className="new-cust-intake"
           id="outline-email"
           label="email"
@@ -130,6 +134,7 @@ class AddNewCustomer extends Component {
           onChange={this.handleChangeEmail}
         />
         <TextField
+          style={{ margin: 10 }}
           className="new-cust-intake"
           id="outline-phonenumber"
           label="Phone Number"
@@ -139,6 +144,7 @@ class AddNewCustomer extends Component {
           onChange={this.handleChangePhone}
         />
         <TextField
+          style={{ margin: 10 }}
           className="new-cust-intake"
           id="outline-notes"
           label="notes"
@@ -149,6 +155,7 @@ class AddNewCustomer extends Component {
           onChange={this.handleChangeNotes}
         />
         <Button onClick={this.updateCust}
+        style={{ margin: 10 }}
           variant="contained"
           color="primary"
           className="addCustBtn">

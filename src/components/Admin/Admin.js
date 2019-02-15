@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -37,9 +38,10 @@ class Admin extends Component {
         <TableHead>
           <TableRow>
             <TableCell>Customer Name</TableCell>
-            <TableCell align="right">Pronouns</TableCell>
-            <TableCell align="right">email</TableCell>
-            <TableCell align="right">Phone Number</TableCell>
+            <TableCell>Pronouns</TableCell>
+            <TableCell>email</TableCell>
+            <TableCell>Phone Number</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -50,6 +52,12 @@ class Admin extends Component {
                 <TableCell>{client.pro_nouns}</TableCell>
                 <TableCell>{client.email}</TableCell>
                 <TableCell>{client.phone_number}</TableCell>
+                <TableCell> <Button variant="contained" 
+                onClick="this.editCust"
+                color="primary">
+                Edit
+                </Button>
+                </TableCell>
                 </TableRow>)
               })}
               
