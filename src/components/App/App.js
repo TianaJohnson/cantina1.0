@@ -72,6 +72,11 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
+              path="/updatecustomer/:id"
+              component={AddNewCustomer}
+            />
+            <ProtectedRoute
+              exact
               path="/file"
               component={CustomerFile}
             />

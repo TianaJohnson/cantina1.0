@@ -46,4 +46,73 @@ router.get('/', (req, res) => {
     }
   });
 
+  router.get('/:id', (req, res) => {
+    console.log('in GET id ')
+    if (req.isAuthenticated()) {
+        console.log('req.user:', req.user);
+        pool.query(`SELECT * FROM "customer_info"
+        WHERE "id" = $1;`, [req.params.id])
+            .then(results => {
+                console.log(results.rows[0])
+                res.send(results.rows[0])
+            })
+            .catch(error => {
+                console.log('Error making SELECT for customer info database:', error);
+                res.sendStatus(500);
+            });
+    } else {
+      // They are not authenticated.
+      res.sendStatus(403);
+    }
+  });
+
+  router.put('/update/:id', (req, res) => {
+      console.log('in put',req.body);
+      if(req.isAuthenticated()){
+          console.log('in authentication put');
+          const queryText 
+      }
+  })
+
+//   router.post('/', (req, res, next) => {
+//     console.log(req.body);
+//     const queryText = `INSERT INTO "customer_info"
+//                      ("customers_full_name", 
+//                       "pro_nouns", 
+//                       "email",
+//                       "phone_number", 
+//                       "customer_notes") 
+//                       VALUES ($1, $2, $3, $4, $5);`;
+//     pool.query(queryText, [req.body.customers_full_name,
+//                            req.body.pro_nouns,
+//                            req.body.email,
+//                            req.body.phone_number,
+//                            req.body.customer_notes])
+//         .then(() => {
+//             console.log( 'server side Post');
+//             res.sendStatus(201);
+//         })
+//         .catch((error) => {
+//             console.log('Something went wrong in post', error);
+            
+//             res.sendStatus(500);;
+//         });
+// });
+
+  // Remove an item from the array with a matching id
+// router.delete('/:id', (req, res) => {
+//     let index = 0;
+//     // loop over all the items in the basket
+//     for (const item of basket) {
+//         // check to see if the id matches
+//         if (req.params.id == item.id) {
+//             // found the item, remove it from the array
+//             basket.splice(index, 1);
+//             break;
+//         }
+//         index += 1;
+//     }
+//     res.sendStatus(200);
+// });
+
 module.exports = router;

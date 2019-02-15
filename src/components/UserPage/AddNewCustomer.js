@@ -28,7 +28,33 @@ const styles = theme => ({
   },
 });
 
+
 class AddNewCustomer extends Component {
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    if(id){
+      const action = { type: 'FETCH_FOCUS_CUSTOMER', payload: id };
+      this.props.dispatch(action);
+    }
+  }
+  
+  componentDidUpdate (prevProps, prevState) {
+    const prevCust = prevProps.reduxStore.addCust.customerFocusReducer;
+    const upCust = this.props.reduxStore.addCust.customerFocusReducer;
+    if( upCust !== prevCust){
+      this.setState({
+        ...upCust
+      })
+      console.log('did mount', upCust);
+      // this.loadState(upCust);
+    }
+  }
+
+  //  loadState = (upCust) =>{
+  //   this.setState({
+  //     ...upCust
+  //   })
+  // }
 
   constructor(props) {
     // cutsomer info to add

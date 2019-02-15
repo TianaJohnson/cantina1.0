@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 const customerReducer = (state = [], action) => {
   console.log('reducer');
     switch (action.type) {
@@ -10,7 +12,24 @@ const customerReducer = (state = [], action) => {
         return state;
     }
   };
-  
+
+  const customerFocusReducer = (state = [], action) => {
+    console.log('reducer');
+      switch (action.type) {
+        case 'SET_FOCUS':
+        console.log('action.paylod:', action.payload)
+          return action.payload;
+      
+        default:
+        console.log('state:', state)
+          return state;
+      }
+    };
+
   // user will be on the redux state at:
   // state.user
-  export default customerReducer;
+  export default combineReducers({
+    customerReducer,
+    customerFocusReducer,
+  });
+  

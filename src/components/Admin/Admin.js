@@ -8,7 +8,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
+import AdminRow from './AdminRow';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -21,6 +22,9 @@ const styles = {
     padding: 50,
   },
 };
+
+  
+
 class Admin extends Component {
   componentDidMount() {
     this.props.dispatch({type: 'FETCH_CUSTOMER'});
@@ -45,21 +49,9 @@ class Admin extends Component {
           </TableRow>
         </TableHead>
         <TableBody>
-
-              {this.props.reduxStore.addCust.map((client, i) =>{
-                return(<TableRow key={i}>
-                <TableCell>{client.customers_full_name}</TableCell>
-                <TableCell>{client.pro_nouns}</TableCell>
-                <TableCell>{client.email}</TableCell>
-                <TableCell>{client.phone_number}</TableCell>
-                <TableCell> <Button variant="contained" 
-                onClick="this.editCust"
-                color="primary">
-                Edit
-                </Button>
-                </TableCell>
-                </TableRow>)
-              })}
+              {this.props.reduxStore.addCust.customerReducer.map(client =>
+                <AdminRow key={client.id} history={this.props.history} client={client}/>
+              )}
               
             
         </TableBody>
