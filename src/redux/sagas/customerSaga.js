@@ -33,12 +33,24 @@ function* fetchFocusCustomer(action) {
   alert('Unabale to fetch customers from server', error);
 }
 }
+
+function* updateCustomer(action) {
+  try {
+    yield axios.put(`/intake/update/${action.payload}`);
+    yield alert('Customer Info Updated.')
+    yield put({ type: 'FETCH_CUSTOMER' });
+  }catch(error){
+    console.log('Unable to update customer info', error);
+    alert('Unable to update customer information', error);
+  }
+}
   
 
   function* loginSaga() {
     yield takeLatest('ADD_CUSTOMER', addCustomer);
     yield takeLatest('FETCH_CUSTOMER', fetchCustomer);
     yield takeLatest('FETCH_FOCUS_CUSTOMER', fetchFocusCustomer);
+    yield takeLatest('UPDATE_CUSTOMER', updateCustomer);
    
   }
   
