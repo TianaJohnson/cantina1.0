@@ -6,6 +6,7 @@ import Tab from '@material-ui/core/Tab'
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
+import ProjectPage from './../ProjectPage/ProjectPage';
 
 function TabContainer(props) {
     return (
@@ -37,7 +38,7 @@ class CustomerToolBar extends Component {
 
     render() {
         const { value } = this.state;
-
+// tool bar (tabs) to navigate through customer file
         return (
             <Paper square>
                 <AppBar position="static">
@@ -53,7 +54,7 @@ class CustomerToolBar extends Component {
                         <Tab label="Contact Information" />
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer>Item One</TabContainer>}
+                {value === 0 && <ProjectPage/>}
                 {value === 1 && <TabContainer>Item Two</TabContainer>}
                 {value === 2 && <TabContainer>Item Three</TabContainer>}
             </Paper>
@@ -61,9 +62,9 @@ class CustomerToolBar extends Component {
     }
 
 }
-CustomerToolBar.propTypes = {
-    classes: PropTypes.object.isRequired,
-  };
+// CustomerToolBar.propTypes = {
+//     classes: PropTypes.object.isRequired,
+//   };
 const mapStateToProps = reduxStore => {
     return { reduxStore: reduxStore };
 }

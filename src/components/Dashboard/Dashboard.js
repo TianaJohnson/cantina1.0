@@ -5,10 +5,11 @@ import Button from '@material-ui/core/Button';
 
 class Dashboard extends Component {
 
+    // on click of btn, sends user to new customer page
     addNew = () => {
         this.props.history.push('/newcustomer');
     }
-
+    // on click of btn sends user to customer file page
     custFile = () => {
         this.props.history.push('/file');
     }
@@ -29,7 +30,6 @@ class Dashboard extends Component {
                 style={{ margin: 10 }}>
                     Customer File
                 </Button>
-                {/* <button onClick={this.addNew}>Add New Customer</button> */}
             </div>
         )
     }

@@ -60,8 +60,8 @@ class AddNewCustomer extends Component {
   //   })
   // }
 
+  // state
   constructor(props) {
-    // cutsomer info to add
     super(props);
     this.state = {
       customers_full_name: '',
@@ -72,7 +72,7 @@ class AddNewCustomer extends Component {
     }
   }
 
-  //saga post
+  //saga post to update/edit current customer info
   updateCust = (event) => {
     console.log('update cust');
     const action = {
@@ -90,9 +90,9 @@ class AddNewCustomer extends Component {
 
   }
  
-  //Send to saga
+  //Send to saga to create a customer in the data base
   updateCust = (event) => {
-    console.log('update cust');
+    console.log('add cust');
     const action = {
       type: 'ADD_CUSTOMER',
       payload: this.state,      
@@ -142,6 +142,9 @@ class AddNewCustomer extends Component {
 
    
   render() {
+
+    // using as a template for conditionl rendering
+    
     // let outPut;
     // if (this.props.reduxStore.feedbackReducer === false) {
     //     outPut = (<Button
@@ -239,12 +242,9 @@ class AddNewCustomer extends Component {
   }
 
 }
-// Instead of taking everything from state, we just want the user info.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({ user });
+
 const mapStateToProps = reduxStore => {
   return { reduxStore: reduxStore };
 }
 
-// this allows us to use <App /> in index.js
 export default withStyles(styles)(connect(mapStateToProps)(AddNewCustomer));

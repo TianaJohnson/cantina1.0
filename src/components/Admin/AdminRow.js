@@ -14,7 +14,7 @@ class AdminRow extends Component {
       }
 
    
-
+// breakdown of customer info in the table from admin page
 render() {
     return(
         <TableRow>

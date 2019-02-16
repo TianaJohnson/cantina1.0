@@ -11,10 +11,7 @@ import { withStyles } from '@material-ui/core/styles';
 // import Button from '@material-ui/core/Button';
 import AdminRow from './AdminRow';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+
 const styles = {
   card: {
     minWidth: 275,
@@ -29,14 +26,15 @@ class Admin extends Component {
   componentDidMount() {
     this.props.dispatch({type: 'FETCH_CUSTOMER'});
   }
-
+// table display of all customers currentlt 02/16/19
+// eventually will display customer name and project file name
     render(){
       return(
         <div>
           <Card>
      <div>
        <h1>Customers</h1>
-       </div>   {/* {JSON.stringify(this.props.reduxStore.addCust)} */}
+       </div> 
   <Paper>
       <Table className="">
         <TableHead>
