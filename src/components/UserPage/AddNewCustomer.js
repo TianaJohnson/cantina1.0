@@ -50,6 +50,10 @@ class AddNewCustomer extends Component {
     }
   }
 
+  backDash = () => {
+    this.props.history.push('/home')
+  }
+
   //  loadState = (upCust) =>{
   //   this.setState({
   //     ...upCust
@@ -66,6 +70,24 @@ class AddNewCustomer extends Component {
       phone_number: '',
       customer_notes: '',
     }
+  }
+
+  //saga post
+  updateCust = (event) => {
+    console.log('update cust');
+    const action = {
+      type: 'UPDATE_CUSTOMER',
+      payload: this.state,      
+    };
+    this.props.dispatch(action);
+    this.setState({
+      customers_full_name: '',
+      pro_nouns: '',
+      email: '',
+      phone_number: '',
+      customer_notes: '',
+    })
+
   }
  
   //Send to saga
@@ -120,8 +142,24 @@ class AddNewCustomer extends Component {
 
    
   render() {
+    // let outPut;
+    // if (this.props.reduxStore.feedbackReducer === false) {
+    //     outPut = (<Button
+    //         variant="contained"
+    //         color="secondary"
+    //         disabled>
+    //         Incomplete
+    //         </Button>)
+    // } else if (this.props.reduxStore.feedbackReducer === true) {
+    //     outPut = (<Button variant="contained"
+    //         onClick={this.updateFinish}
+    //         color="primary" >
+    //         Submit
+    //              </Button>)
+    // }
 
     return (
+      <div>
       <form 
         className="form_newCust" >
         New Customer:
@@ -188,6 +226,14 @@ class AddNewCustomer extends Component {
           Add
        </Button>
       </form>
+      
+        <Button variant="outlined" 
+        color="secondary"
+        style={{ margin: 20 }}
+        onClick={this.backDash}>
+        Back
+      </Button>
+      </div>
       // end material ui intake form for new customer
     )
   }
