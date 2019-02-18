@@ -29,13 +29,6 @@ render() {
                 style={{ margin: 10 }}>
                 Edit
                 </Button>
-             <Button variant="contained"
-                size="small" 
-                style={{ margin: 10 }}
-                //onClick={this.editCust}
-                color="secondary">
-                Archive
-                </Button>
             </TableCell>
         </TableRow>
     )

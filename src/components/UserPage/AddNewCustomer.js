@@ -71,11 +71,6 @@ class AddNewCustomer extends Component {
     this.props.history.push('/home')
   }
 
-  //  loadState = (upCust) =>{
-  //   this.setState({
-  //     ...upCust
-  //   })
-  // }
 
   
 
@@ -99,7 +94,7 @@ class AddNewCustomer extends Component {
   }
  
   //Send to saga to create a customer in the data base
-  addCust = (event) => {
+  addCustomer = (event) => {
     console.log('add cust');
     const action = {
       type: 'ADD_CUSTOMER',
@@ -223,8 +218,8 @@ class AddNewCustomer extends Component {
            </Button>
             :
             // false
-            <Button onClick={this.AddNewCustomer}
-            style={{ margin: 10 }}
+            <Button onClick={this.addCustomer}
+              style={{ margin: 10 }}
               variant="contained"
               color="primary"
               className="addCustBtn">
