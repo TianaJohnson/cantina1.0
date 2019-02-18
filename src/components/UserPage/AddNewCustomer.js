@@ -44,16 +44,14 @@ class AddNewCustomer extends Component {
     }
   }
 
-
   componentDidMount() {
     const id = this.props.match.params.id;
     if(id){
       const action = { type: 'FETCH_FOCUS_CUSTOMER', payload: id };
-      this.props.dispatch(action);
-      
+      this.props.dispatch(action);      
     }
   }
-  
+
   componentDidUpdate (prevProps, prevState) {
     const prevCust = prevProps.reduxStore.addCust.customerFocusReducer;
     const upCust = this.props.reduxStore.addCust.customerFocusReducer;
@@ -66,16 +64,12 @@ class AddNewCustomer extends Component {
       // this.loadState(upCust);
     }
   }
-
+// on click sends home
   backDash = () => {
     this.props.history.push('/home')
   }
 
-
-  
-
   //saga post to update/edit current customer info
-  // problem
   updateCust = (event) => {
     console.log('update cust');
     const action = {
@@ -90,7 +84,7 @@ class AddNewCustomer extends Component {
       phone_number: '',
       customer_notes: '',
     })
-
+    this.props.history.push('/admin');
   }
  
   //Send to saga to create a customer in the data base

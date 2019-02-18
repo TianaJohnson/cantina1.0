@@ -57,10 +57,9 @@ input {
     border-radius: 2px; 
     
 }
-
-.dashboard_main {
-    margin: 40px;
+.project_page {
+    padding: 20px;
 }
-Table {
-
+.project_main_contact {
+    padding: 20px;
 }

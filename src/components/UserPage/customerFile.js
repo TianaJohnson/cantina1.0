@@ -2,32 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CustomerToolBar from './../CustomerToolBar/CustomerToolBar';
 
-import Card from '@material-ui/core/Card';
+//import Card from '@material-ui/core/Card';
 // import Button from '@material-ui/core/Button';
 
 class customerFile extends Component {
-
-  projectPage = () => {
-    this.props.history.push('/project');
-  }
 
   // holding toolbar link
     render () {
         return(
         <div>
           <CustomerToolBar match={this.props.match} history={this.props.history}/>
-          <Card>
-    
-          </Card>          
         </div>
-        );
-        
+        );        
     }
-
-
-
 }
-
 const mapStateToProps = reduxStore => {
     return { reduxStore: reduxStore };
   }
