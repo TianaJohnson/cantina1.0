@@ -22,10 +22,19 @@ render() {
                 <TableCell>{this.props.client.pro_nouns}</TableCell>
                 <TableCell>{this.props.client.email}</TableCell>
                 <TableCell>{this.props.client.phone_number}</TableCell>
-                <TableCell> <Button variant="contained" 
+                <TableCell> <Button variant="contained"
+                size="small" 
                 onClick={this.editCust}
-                color="primary">
+                color="primary"
+                style={{ margin: 10 }}>
                 Edit
+                </Button>
+             <Button variant="contained"
+                size="small" 
+                style={{ margin: 10 }}
+                //onClick={this.editCust}
+                color="secondary">
+                Archive
                 </Button>
             </TableCell>
         </TableRow>

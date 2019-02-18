@@ -2,22 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
+
 class ProjectPage extends Component {
 
+    projectIn = () => {
+        this.props.history.push('/addproject');
+    }
 
-    //may not need this page..
+
+    //Project main page
     render() {
         return (
-            <div className="project_main">
+            <div className="project_page">
                 <h1>Project Page</h1>
-                <Button variant="outlined" 
-                        color="secondary"
-                        style={{ margin: 10 }} >
-                        Add New Project
+                <Button variant="outlined"
+                    color="secondary"
+                    style={{ margin: 10 }}
+                    onClick={this.projectIn}>
+                    Add New Project
                 </Button>
-                <Button variant="outlined" 
-                        color="secondary" >
-                        Past Projects
+                <Button variant="outlined"
+                    color="secondary" >
+                    Past Projects
                 </Button>
             </div>
         )

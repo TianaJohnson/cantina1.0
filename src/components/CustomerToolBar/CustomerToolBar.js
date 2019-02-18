@@ -7,6 +7,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import ProjectPage from './../ProjectPage/ProjectPage';
+import FitDataPage from './../FitDataPage/FitDataPage';
+import BuildStatusPage from './../BuildStatusPage/BuildStatusPage';
+import CustomerNotesPage from './../CustomerNotesPage/CustomerNotesPage';
+import CustomerContactInfo from './../CustomerContactInfo/CustomerContactInfo';
 
 function TabContainer(props) {
     return (
@@ -32,10 +36,6 @@ class CustomerToolBar extends Component {
         this.setState({ value });
     };
 
-    projectPage = () => {
-        this.props.history.push('/project');
-    }
-
     render() {
         const { value } = this.state;
 // tool bar (tabs) to navigate through customer file
@@ -54,9 +54,11 @@ class CustomerToolBar extends Component {
                         <Tab label="Contact Information" />
                     </Tabs>
                 </AppBar>
-                {value === 0 && <ProjectPage/>}
-                {value === 1 && <TabContainer>Item Two</TabContainer>}
-                {value === 2 && <TabContainer>Item Three</TabContainer>}
+                {value === 0 && <ProjectPage/>} 
+                {value === 1 && <FitDataPage/>}
+                {value === 2 && <BuildStatusPage/>}
+                {value === 3 && <CustomerNotesPage/>}
+                {value === 4 && <CustomerContactInfo/>}
             </Paper>
         )
     }

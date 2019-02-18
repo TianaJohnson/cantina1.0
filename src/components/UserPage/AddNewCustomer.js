@@ -30,11 +30,27 @@ const styles = theme => ({
 
 
 class AddNewCustomer extends Component {
+
+    // state
+  constructor(props) {
+    super(props);
+    this.state = {
+      editing: false,
+      customers_full_name: '',
+      pro_nouns: '',
+      email: '',
+      phone_number: '',
+      customer_notes: '',
+    }
+  }
+
+
   componentDidMount() {
     const id = this.props.match.params.id;
     if(id){
       const action = { type: 'FETCH_FOCUS_CUSTOMER', payload: id };
       this.props.dispatch(action);
+      
     }
   }
   
@@ -43,7 +59,8 @@ class AddNewCustomer extends Component {
     const upCust = this.props.reduxStore.addCust.customerFocusReducer;
     if( upCust !== prevCust){
       this.setState({
-        ...upCust
+        ...upCust,
+        editing: true,
       })
       console.log('did mount', upCust);
       // this.loadState(upCust);
@@ -60,19 +77,10 @@ class AddNewCustomer extends Component {
   //   })
   // }
 
-  // state
-  constructor(props) {
-    super(props);
-    this.state = {
-      customers_full_name: '',
-      pro_nouns: '',
-      email: '',
-      phone_number: '',
-      customer_notes: '',
-    }
-  }
+  
 
   //saga post to update/edit current customer info
+  // problem
   updateCust = (event) => {
     console.log('update cust');
     const action = {
@@ -91,7 +99,7 @@ class AddNewCustomer extends Component {
   }
  
   //Send to saga to create a customer in the data base
-  updateCust = (event) => {
+  addCust = (event) => {
     console.log('add cust');
     const action = {
       type: 'ADD_CUSTOMER',
@@ -142,24 +150,6 @@ class AddNewCustomer extends Component {
 
    
   render() {
-
-    // using as a template for conditionl rendering
-    
-    // let outPut;
-    // if (this.props.reduxStore.feedbackReducer === false) {
-    //     outPut = (<Button
-    //         variant="contained"
-    //         color="secondary"
-    //         disabled>
-    //         Incomplete
-    //         </Button>)
-    // } else if (this.props.reduxStore.feedbackReducer === true) {
-    //     outPut = (<Button variant="contained"
-    //         onClick={this.updateFinish}
-    //         color="primary" >
-    //         Submit
-    //              </Button>)
-    // }
 
     return (
       <div>
@@ -221,13 +211,27 @@ class AddNewCustomer extends Component {
           value={this.state.customer_notes}
           onChange={this.handleChangeNotes}
         />
-        <Button onClick={this.updateCust}
-        style={{ margin: 10 }}
-          variant="contained"
-          color="primary"
-          className="addCustBtn">
-          Add
-       </Button>
+        {
+          this.state.editing ? 
+            // true
+            <Button onClick={this.updateCust}
+            style={{ margin: 10 }}
+              variant="contained"
+              color="primary"
+              className="addCustBtn">
+              Update
+           </Button>
+            :
+            // false
+            <Button onClick={this.AddNewCustomer}
+            style={{ margin: 10 }}
+              variant="contained"
+              color="primary"
+              className="addCustBtn">
+              Add
+           </Button>
+        }
+       
       </form>
       
         <Button variant="outlined" 

@@ -35,8 +35,9 @@ function* fetchFocusCustomer(action) {
 }
 
 function* updateCustomer(action) {
+  console.log('In saga Put', action.payload)
   try {
-    yield axios.put(`/intake/update/${action.payload}`);
+    yield axios.put(`/intake/update/${action.payload.id}`, action.payload);
     yield alert('Customer Info Updated.')
     yield put({ type: 'FETCH_CUSTOMER' });
   }catch(error){

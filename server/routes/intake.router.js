@@ -67,21 +67,22 @@ router.get('/', (req, res) => {
   });
 
   router.put('/update/:id', (req, res) => {
-      console.log('in put',req.body);
+      console.log('in put',req.params.id);
       if(req.isAuthenticated()){
-          console.log('in authentication put');
+          console.log('in authentication put', req.params.id);
           const queryText = `UPDATE "customer_info"
-                             SET "customer_full_name" = $1,
+                             SET "customers_full_name" = $1,
                                  "pro_nouns" = $2,
                                  "email" = $3,
                                  "phone_number" = $4,
                                  "customer_notes" = $5
-                             WHERE "id" = $5;`;
-        pool.query(quearyText, [req.body.customers_full_name,
+                             WHERE "id" = $6;`;
+        pool.query(queryText, [req.body.customers_full_name,
                                 req.body.pro_nouns,
                                 req.body.email,
                                 req.body.phone_number,
-                                req.body.customer_notes])
+                                req.body.customer_notes,
+                                req.body.id])
         .then(() => {
             console.log( 'server side Put');
             res.sendStatus(201);

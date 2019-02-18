@@ -18,18 +18,18 @@ class Dashboard extends Component {
         return (
             <div className="dashboard_main">
                 <h1>Dashboard</h1>
-                <Button variant="outlined" 
-                color="primary" 
-                onClick={this.addNew}
-                style={{ margin: 10 }}>
+                <Button variant="outlined"
+                    color="primary"
+                    onClick={this.addNew}
+                    style={{ margin: 10 }}>
                     Add New Customer
-                </Button>
-                <Button variant="outlined" 
-                color="secondary" 
-                onClick={this.custFile}
-                style={{ margin: 10 }}>
+                    </Button>
+                <Button variant="outlined"
+                    color="secondary"
+                    onClick={this.custFile}
+                    style={{ margin: 10 }}>
                     Customer File
-                </Button>
+                    </Button>
             </div>
         )
     }
