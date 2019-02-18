@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
     console.log('in GET ')
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user);
-        pool.query(`SELECT * FROM "customer_info";`)
+        pool.query(`SELECT * FROM "customer_info" ORDER BY "id" DESC;`)
             .then(results => {
                 console.log(results.rows)
                 res.send(results.rows)

@@ -15,7 +15,7 @@ class customerFile extends Component {
     render () {
         return(
         <div>
-          <CustomerToolBar/>
+          <CustomerToolBar match={this.props.match} history={this.props.history}/>
           <Card>
     
           </Card>          

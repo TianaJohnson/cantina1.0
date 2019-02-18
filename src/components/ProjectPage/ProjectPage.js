@@ -9,12 +9,14 @@ class ProjectPage extends Component {
         this.props.history.push('/addproject');
     }
 
+    // make axios request to /intake/${this.props.match.params.id}
 
     //Project main page
     render() {
         return (
             <div className="project_page">
                 <h1>Project Page</h1>
+                HERE: {JSON.stringify(this.props.match.params.id)}
                 <Button variant="outlined"
                     color="secondary"
                     style={{ margin: 10 }}

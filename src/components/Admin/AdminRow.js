@@ -12,6 +12,10 @@ class AdminRow extends Component {
     editCust = () => {
         this.props.history.push(`updatecustomer/${this.props.client.id}`);
       }
+          // on click of btn sends user to customer file page
+    custFile = () => {
+        this.props.history.push(`/file/${this.props.client.id}`);
+    }
 
    
 // breakdown of customer info in the table from admin page
@@ -29,7 +33,14 @@ render() {
                 style={{ margin: 10 }}>
                 Edit
                 </Button>
+                <Button variant="outlined"
+                    color="secondary"
+                    onClick={this.custFile}
+                    style={{ margin: 10 }}>
+                    Customer File
+                    </Button>
             </TableCell>
+            
         </TableRow>
     )
 }

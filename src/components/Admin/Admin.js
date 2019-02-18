@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import AdminRow from './AdminRow';
 
 
@@ -26,6 +26,11 @@ class Admin extends Component {
   componentDidMount() {
     this.props.dispatch({type: 'FETCH_CUSTOMER'});
   }
+
+  // on click of btn, sends user to new customer page
+  addNew = () => {
+    this.props.history.push('/newcustomer');
+}
 // table display of all customers currentlt 02/16/19
 // eventually will display customer name and project file name
     render(){
@@ -34,6 +39,12 @@ class Admin extends Component {
           <Card>
      <div>
        <h1>Customers</h1>
+       <Button variant="outlined"
+                    color="primary"
+                    onClick={this.addNew}
+                    style={{ margin: 10 }}>
+                    Add New Customer
+                    </Button>
        </div> 
   <Paper>
       <Table className="">

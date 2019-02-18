@@ -41,6 +41,7 @@ class CustomerToolBar extends Component {
 // tool bar (tabs) to navigate through customer file
         return (
             <Paper square>
+            
                 <AppBar position="static">
                     <Tabs
                         value={value}
@@ -54,11 +55,11 @@ class CustomerToolBar extends Component {
                         <Tab label="Contact Information" />
                     </Tabs>
                 </AppBar>
-                {value === 0 && <ProjectPage/>} 
-                {value === 1 && <FitDataPage/>}
-                {value === 2 && <BuildStatusPage/>}
-                {value === 3 && <CustomerNotesPage/>}
-                {value === 4 && <CustomerContactInfo/>}
+                {value === 0 && <ProjectPage match={this.props.match} history={this.props.history}/>} 
+                {value === 1 && <FitDataPage match={this.props.match} history={this.props.history}/>}
+                {value === 2 && <BuildStatusPage match={this.props.match} history={this.props.history}/>}
+                {value === 3 && <CustomerNotesPage match={this.props.match} history={this.props.history}/>}
+                {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>}
             </Paper>
         )
     }

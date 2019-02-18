@@ -59,7 +59,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={Dashboard}
+              component={AdminPage}
             />
             <ProtectedRoute
               exact
@@ -78,7 +78,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/file"
+              path="/file/:id"
               component={CustomerFile}
             />
             <ProtectedRoute

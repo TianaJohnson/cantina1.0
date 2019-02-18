@@ -108,7 +108,7 @@ class AddNewCustomer extends Component {
       phone_number: '',
       customer_notes: '',
     })
-  this.props.history.push('/file');
+  this.props.history.push('/admin');
   }
 
   // // input state update
