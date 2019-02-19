@@ -47,7 +47,7 @@ function* updateCustomer(action) {
 }
   
 
-  function* loginSaga() {
+  function* customerSaga() {
     yield takeLatest('ADD_CUSTOMER', addCustomer);
     yield takeLatest('FETCH_CUSTOMER', fetchCustomer);
     yield takeLatest('FETCH_FOCUS_CUSTOMER', fetchFocusCustomer);
@@ -55,5 +55,5 @@ function* updateCustomer(action) {
    
   }
   
-  export default loginSaga;
+  export default customerSaga;
   

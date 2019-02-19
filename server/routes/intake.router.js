@@ -17,11 +17,11 @@ router.post('/', (req, res, next) => {
                            req.body.phone_number,
                            req.body.customer_notes])
         .then(() => {
-            console.log( 'server side Post');
+            console.log( 'server side intake Post');
             res.sendStatus(201);
         })
         .catch((error) => {
-            console.log('Something went wrong in post', error);
+            console.log('Something went wrong in intake post', error);
             
             res.sendStatus(500);;
         });
