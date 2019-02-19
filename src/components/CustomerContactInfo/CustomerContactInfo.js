@@ -43,15 +43,18 @@ class CustomerContactInfo extends Component {
     //may not need this page..
     render() {
         return (
-            <div className="project_main_contact">
+            <div className="project_contact">
+            <div className="project_contact_name">
                 <h1>Contact Info</h1>
                 <br/>
+                </div>
                 <h2>Customer id: {this.state.customer_id}</h2>
                 <h2>Customer name: {this.state.customers_name}</h2>
                 <h2>Prefered pronouns: {this.state.pro_nouns}</h2>
                 <h2>Email address: {this.state.email}</h2>
                 <h2>Phone number: {this.state.phone_number}</h2>
-                <h2>Notes: {this.state.customer_notes}</h2>             
+                <h2>Notes: {this.state.customer_notes}</h2> 
+                <br/>            
             </div>
         )
     }

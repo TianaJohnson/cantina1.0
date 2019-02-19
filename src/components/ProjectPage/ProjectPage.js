@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 
 
 
+
 class ProjectPage extends Component {
     constructor(props) {
         super(props);
@@ -43,21 +44,27 @@ class ProjectPage extends Component {
     render() {
         return (
             <div className="project_page">
-                <h1>Project Page</h1>
-                <h2>Customer: {this.state.customer_name}'s</h2>
-                <h3>Build Information</h3>
-                <Card>
-                <form>
-                    <TextField
-                        id="outlined-name"
-                        label="Name"
-                        margin="normal"
-                        variant="outlined"
-                    />
-                </form>
-                <Button variant="outlined"
+                <Card className="file_card">
+                    <div className="cust_info">
+                    <h1>Project Page</h1>
+                    <h2>Customer: {this.state.customer_name}'s</h2>
+                    <h3>Build Information</h3>
+                    </div>
+                    <div className="file_text">
+                    <form>
+                        <TextField
+                            id="outlined-name"
+                            margin="normal"
+                            variant="outlined"
+                            placeholder="   This field's intended use is to quickly take in the customers personal vision and description of the bike the with to have built. Such info would be paint color themes or desired use of bike, "
+                            multiline rows="10"
+                            fullWidth
+                        />
+                    </form>
+                    </div>
+                    <Button variant="outlined"
                         color="secondary"
-                        style={{ margin: 10 }}
+                        style={{ margin: 20, marginTop: 10 }}
                         onClick={this.projectIn}>
                         Add New Project
                         </Button>

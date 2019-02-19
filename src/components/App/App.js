@@ -17,8 +17,9 @@ import AdminPage from '../Admin/Admin';
 // import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import AddNewCustomer from'./../UserPage/AddNewCustomer';
-import CustomerFile from './../UserPage/CustomerFile';
+// import CustomerFile from './../UserPage/CustomerFile';
 import ProjectPage from './../ProjectPage/ProjectPage';
+import CustomerToolBar from './../CustomerToolBar/CustomerToolBar';
 
 import './App.css';
 
@@ -38,11 +39,6 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-            <ProtectedRoute
-              exact
-              path="/admin"
-              component={AdminPage}
-            />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
@@ -77,7 +73,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/file/:id"
-              component={CustomerFile}
+              component={CustomerToolBar}
             />
             <ProtectedRoute
               exact
