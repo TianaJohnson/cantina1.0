@@ -108,7 +108,7 @@ class ProjectPage extends Component {
       }
         // this may not work..
     // boolean state set
-    handleChangeDeepCustome = (event) => {
+    handleChangeDeepCustom = (event) => {
         this.setState({
             deep_custom: event.target.value,
         });
@@ -225,8 +225,8 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Project Name"
-                                // value={this.state.project_name}
-                                onChange={this.props.handleChangeProjectName}
+                                value={this.state.project_name}
+                                onChange={this.handleChangeProjectName}
                             />
                             <TextField
                                 id="outlined-height"
@@ -243,9 +243,9 @@ class ProjectPage extends Component {
                                 margin="normal"
                                 variant="outlined"
                                 placeholder="false"
-                                lable="Deep Custome"
+                                label="Deep Custom"
                                 value={this.state.deep_custome}
-                                onChange={this.handleChangeDeepCustome}
+                                onChange={this.handleChangeDeepCustom}
                             />
                             {/* <Select
                                 native
