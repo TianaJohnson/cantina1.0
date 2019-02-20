@@ -7,12 +7,15 @@ body {
     margin: 50px;
 }
 .form_Login {
+   
     background-color: #298ee0;
-    width: 30%;
-    height: 250px;
+    width: 20%;
+    height: 275px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
+    border-color: white;
+    border-width: 2px;
 }
 
 input {
@@ -20,6 +23,7 @@ input {
     margin-bottom: 10px;
 }
 .log-in, .log-out, .register {
+    
   background-color: #00acb0;
   margin: 30px;
   border-radius: 4px;
@@ -45,6 +49,26 @@ input {
     border-bottom:1px solid #444; 
     cursor: pointer;
 }
+
+/* login page */
+.login-page{
+    background-image: url("/images/Peacocktap.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+/* Admin/home page */
+.admin_main {
+    background-image: url("/images/Peacocktap.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.admin_card {
+    opacity: 0.7;  
+    margin-left: 50px; 
+    margin-right: 50px;
+}
 /* Add New Customer/ update customer pag */
 .form_newCust {
     opacity: 0.7 ;
@@ -53,9 +77,6 @@ input {
     /* margin: 15px; */
     /* padding: 25px; */
     border-radius: 2px;    
-}
-.add_table {
-    margin: 20px;
 }
 
 .project_page {

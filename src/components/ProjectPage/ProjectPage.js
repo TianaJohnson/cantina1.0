@@ -4,6 +4,12 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 import Card from '@material-ui/core/Card';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import ProjectRow from './ProjectPageRows';
 // import Select from '@material-ui/core/Select';
 // import OutlinedInput from '@material-ui/core/OutlinedInput';
 
@@ -32,20 +38,21 @@ class ProjectPage extends Component {
             brake_type: '',
             wheel_size: '',
             tire_clearance: '',
+            project_status: '',
             client_id: this.props.match.params.id,
         }
     }
     componentDidMount() {
         this.custName();
-        this.props.dispatch({type: 'FETCH_CUSTOMER'});
-         
+        this.props.dispatch({ type: 'FETCH_CUSTOMER' });
+
     }
     //Send project info to saga
     projectIn = (event) => {
         console.log('project In');
         const action = {
-          type: 'ADD_PROJECT',
-          payload: this.state,
+            type: 'ADD_PROJECT',
+            payload: this.state,
         };
         console.log('sending to project saga')
         this.props.dispatch(action);
@@ -71,11 +78,12 @@ class ProjectPage extends Component {
             brake_type: '',
             wheel_size: '',
             tire_clearance: '',
+            project_status: '',
             client_id: this.props.match.params.id,
         })
         this.props.history.push('/home');
-      }
-      
+    }
+
 
 
     // make axios request to /intake/${this.props.match.params.id}
@@ -93,20 +101,20 @@ class ProjectPage extends Component {
         });
     }
 
-// input onChange handles
+    // input onChange handles
     handleChangeProjectName = (event) => {
         console.log('name')
         this.setState({
-          project_name: event.target.value,
+            project_name: event.target.value,
         })
-      }
+    }
     handleChangeBrand = (event) => {
         console.log('brand')
         this.setState({
-          brand: event.target.value,
+            brand: event.target.value,
         })
-      }
-        // this may not work..
+    }
+    // this may not work..
     // boolean state set
     handleChangeDeepCustom = (event) => {
         this.setState({
@@ -203,7 +211,7 @@ class ProjectPage extends Component {
             tire_clearance: event.target.value,
         });
     }
-      
+
 
 
 
@@ -215,6 +223,26 @@ class ProjectPage extends Component {
                     <div className="cust_info">
                         <h1>Project Page</h1>
                         <h2>Customer: {this.state.customer_name}'s</h2>
+                        <div>
+                            <Table className="admin_table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Customer Name</TableCell>
+                                        <TableCell>Project</TableCell>
+                                        <TableCell>email</TableCell>
+                                        <TableCell>Phone Number</TableCell>
+                                        <TableCell></TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {this.props.reduxStore.addCust.customerReducer.map(client =>
+                                        <ProjectRow key={client.id} history={this.props.history} client={client} />
+                                    )}
+
+
+                                </TableBody>
+                            </Table>
+                        </div>
                         <h3>Build Information</h3>
                     </div>
                     <div className="file_text">

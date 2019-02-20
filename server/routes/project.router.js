@@ -26,12 +26,14 @@ router.post('/:id', (req, res, next) => {
                       "brake_type",
                       "wheel_size",
                       "tire_clearance",
+                      "progress_status",
+                      "date_created",
                       "client_id",
                       "user_id")
                       VALUES ($1, $2, $3, $4, $5, $6, $7,
                               $8, $9, $10, $11, $12, $13, $14,
                               $15, $16, $17, $18, $19, $20,
-                              $21, $22);`;
+                              $21, $22, $23, $24);`;
     pool.query(queryText, [req.body.project_name,
                             req.body.brand,
                             req.body.deep_custom,
@@ -52,6 +54,8 @@ router.post('/:id', (req, res, next) => {
                             req.body.brake_type,
                             req.body.wheel_size,
                             req.body.tire_clearance,
+                            req.body.progress_status,
+                            rec.body.date_created, 
                             req.body.client_id,
                             req.user.id])
         .then(() => {

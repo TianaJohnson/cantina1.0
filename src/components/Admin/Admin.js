@@ -35,8 +35,8 @@ class Admin extends Component {
 // eventually will display customer name and project file name
     render(){
       return(
-        <div>
-          <Card>
+        <div className="admin_main">
+          <Card className="admin_card">
      <div>
        <h1>Customers</h1>
        <Button variant="outlined"
@@ -47,10 +47,10 @@ class Admin extends Component {
                     </Button>
        </div> 
   <Paper>
-      <Table className="">
+      <Table className="admin_table">
         <TableHead>
           <TableRow>
-            <TableCell>Customer Name</TableCell>
+            <TableCell>Project Name</TableCell>
             <TableCell>Pronouns</TableCell>
             <TableCell>email</TableCell>
             <TableCell>Phone Number</TableCell>
