@@ -73,14 +73,15 @@ router.post('/:id', (req, res, next) => {
 });
 
 
-router.get('/', (req, res) => {
-    console.log('in GET ')
+router.get('/:id', (req, res) => {
+    console.log('in GET project get id ')
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user);
-        pool.query(`SELECT * FROM "customer_info" ORDER BY "id" DESC;`)
+        pool.query(`SELECT * FROM "project" 
+                    WHERE "client_id" = $1;`, [req.params.id])
             .then(results => {
-                console.log(results.rows)
-                res.send(results.rows)
+                console.log(results.rows[0])
+                res.send(results.rows[0])
             })
             .catch(error => {
                 console.log('Error making SELECT for customer info database:', error);
@@ -91,5 +92,6 @@ router.get('/', (req, res) => {
       res.sendStatus(403);
     }
   });
+
 
 module.exports = router;

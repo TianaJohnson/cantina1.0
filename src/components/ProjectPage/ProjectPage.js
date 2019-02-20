@@ -45,9 +45,8 @@ class ProjectPage extends Component {
         }
     }
     componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_PROJECT' });
         this.custName();
-        this.props.dispatch({ type: 'FETCH_CUSTOMER' });
-
     }
     //Send project info to saga
     projectIn = (event) => {
@@ -249,11 +248,9 @@ class ProjectPage extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {this.props.reduxStore.project.projectReducer.map(work =>
+                                    {/* {this.props.reduxStore.project.projectReducer.map(work =>
                                         <ProjectRow key={work.id} history={this.props.history} work={work} />
-                                    )}
-
-
+                                    )} */}
                                 </TableBody>
                             </Table>
                         </div>

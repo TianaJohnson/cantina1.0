@@ -99,20 +99,24 @@ router.get('/', (req, res) => {
   })
 
 
-  // Remove an item from the array with a matching id
-// router.delete('/:id', (req, res) => {
-//     let index = 0;
-//     // loop over all the items in the basket
-//     for (const item of basket) {
-//         // check to see if the id matches
-//         if (req.params.id == item.id) {
-//             // found the item, remove it from the array
-//             basket.splice(index, 1);
-//             break;
-//         }
-//         index += 1;
-//     }
-//     res.sendStatus(200);
-// });
+  router.put('/archive/:id', (req, res) => {
+    console.log('in project put',req.params.id);
+    if(req.isAuthenticated()){
+        console.log('in authentication put', req.params.id);
+        const queryText = `UPDATE "project"
+                           SET "is_active" = $1,
+                           WHERE "id" = $2;`;
+      pool.query(queryText, [req.body.is_active,
+                              req.body.id])
+      .then(() => {
+          console.log( 'server side project Put');
+          res.sendStatus(201);
+      })
+      .catch((error) => {
+          console.log('Something Went wrong in Put', error);
+
+      });
+    }
+})
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 const customerReducer = (state = [], action) => {
-  console.log('reducer');
+  console.log('Cust reducer');
     switch (action.type) {
       case 'SET_CUSTOMER':
       console.log('action.paylod:', action.payload)
@@ -14,7 +14,7 @@ const customerReducer = (state = [], action) => {
   };
 
   const customerFocusReducer = (state = [], action) => {
-    console.log('reducer');
+    console.log('CF reducer');
       switch (action.type) {
         case 'SET_FOCUS':
         console.log('action.paylod:', action.payload)

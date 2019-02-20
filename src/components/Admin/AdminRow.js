@@ -6,9 +6,18 @@ import TableCell from '@material-ui/core/TableCell';
 // import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
+// import Axios from 'axios';
 
 
 class AdminRow extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            is_active: true,
+        }
+    }
+
+
     editCust = () => {
         this.props.history.push(`updatecustomer/${this.props.client.id}`);
     }
@@ -17,9 +26,18 @@ class AdminRow extends Component {
         this.props.history.push(`/file/${this.props.client.id}`);
     }
 
-    archiveFile = () => {
-        
-    }
+    archiveFile = (event) => {
+        this.setState({
+            is_active: false,
+        })
+        console.log('archive cust');
+        const action = {
+          type: 'ARCHIVE_CUSTOMER',
+          payload: this.state,
+        };
+        this.props.dispatch(action);
+        this.props.history.push('/home');
+      }
 
 
     // breakdown of customer info in the table from admin page
@@ -45,7 +63,7 @@ class AdminRow extends Component {
                 </Button>
                     <Button variant="outlined"
                         color="inherit"
-                        onClick={this.custFile}
+                        onClick={this.archiveFile}
                         style={{ margin: 10 }}>
                         Delete
                     </Button>

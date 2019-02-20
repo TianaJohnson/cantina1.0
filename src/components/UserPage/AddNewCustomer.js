@@ -204,7 +204,7 @@ class AddNewCustomer extends Component {
                 style={{ margin: 10 }}
                 variant="contained"
                 color="primary"
-                className="addCustBtn">
+                className="editCustBtn">
                 Update
            </Button>
               :

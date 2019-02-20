@@ -2,6 +2,7 @@ import axios from 'axios';
 import { takeLatest, put } from 'redux-saga/effects';
 
 //post saga = send info to server
+//Create
 function* addCustomer(action) {
     try { 
       yield axios.post('/intake', action.payload);
@@ -13,6 +14,7 @@ function* addCustomer(action) {
   }
 
   //fetch saga = works with customerReducer
+  //read
   function* fetchCustomer(action) {
     try{
     const responseFromServer = yield axios.get('/intake');
@@ -23,6 +25,7 @@ function* addCustomer(action) {
     alert('Unabale to fetch customers from server', error);
   }
 }
+//Read
 function* fetchFocusCustomer(action) {
   try{
   const responseFromServer = yield axios.get(`/intake/${action.payload}`);
@@ -33,11 +36,24 @@ function* fetchFocusCustomer(action) {
   alert('Unabale to fetch customers from server', error);
 }
 }
-
+//Update Customer
 function* updateCustomer(action) {
   console.log('In saga Put', action.payload)
   try {
     yield axios.put(`/intake/update/${action.payload.id}`, action.payload);
+    yield alert('Customer Info Updated.')
+    yield put({ type: 'FETCH_CUSTOMER' });
+  }catch(error){
+    console.log('Unable to update customer info', error);
+    alert('Unable to update customer information', error);
+  }
+}
+// archive customer no delete
+// acts as a Delete
+function* archiveCustomer(action) {
+  console.log('In saga Put', action.payload)
+  try {
+    yield axios.put(`/intake/archive/${action.payload.id}`, action.payload);
     yield alert('Customer Info Updated.')
     yield put({ type: 'FETCH_CUSTOMER' });
   }catch(error){
@@ -52,6 +68,7 @@ function* updateCustomer(action) {
     yield takeLatest('FETCH_CUSTOMER', fetchCustomer);
     yield takeLatest('FETCH_FOCUS_CUSTOMER', fetchFocusCustomer);
     yield takeLatest('UPDATE_CUSTOMER', updateCustomer);
+    yield takeLatest('ARCHIVE_CUSTOMER', archiveCustomer);
    
   }
   

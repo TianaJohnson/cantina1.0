@@ -2,6 +2,7 @@ import axios from 'axios';
 import { takeLatest, put } from 'redux-saga/effects';
 
 function* addProject(action) {
+    console.log('project post saga');
     try {
         yield axios.post(`/project/${action.payload.id}`, action.payload);
         yield alert('Project added.');
@@ -11,15 +12,17 @@ function* addProject(action) {
     }
 }
 function* fetchProject(action) {
+    console.log('get project server 1');
     try{
-    const responseFromServer = yield axios.get('/project');
+    const responseFromServer = yield axios.get(`/project/${action.payload}`);
     yield put({ type: 'SET_PROJECT', payload: responseFromServer.data});
-    console.log('response from server is:',responseFromServer.data)
+    console.log('response from project server is:',responseFromServer.data)
   } catch (error) {
     console.log('Unabale to fetch project from server', error);
     alert('Unabale to fetch project from server', error);
   }
 }
+
 
 function* projectSaga() {
     yield takeLatest('ADD_PROJECT', addProject);
