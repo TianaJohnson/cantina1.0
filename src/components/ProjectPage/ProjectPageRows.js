@@ -26,10 +26,10 @@ class ProjectPageRows extends Component {
     render() {
         return (
             <TableRow>
-                <TableCell>{this.props.client.customers_full_name}</TableCell>
-                <TableCell>{this.props.client.pro_nouns}</TableCell>
-                <TableCell>{this.props.client.email}</TableCell>
-                <TableCell>{this.props.client.phone_number}</TableCell>
+                <TableCell>{this.props.work.project_name}</TableCell>
+                <TableCell>{this.props.work.brand}</TableCell>
+                <TableCell>{this.props.work.progress_status}</TableCell>
+                <TableCell>{this.props.work.projected_due_date}</TableCell>
                 <TableCell> <Button variant="outlined"
                     size="small"
                     onClick={this.editCust}

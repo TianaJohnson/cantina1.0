@@ -39,6 +39,8 @@ class ProjectPage extends Component {
             wheel_size: '',
             tire_clearance: '',
             project_status: '',
+            date_created: new Date(),
+            projected_due_date: '',
             client_id: this.props.match.params.id,
         }
     }
@@ -78,7 +80,9 @@ class ProjectPage extends Component {
             brake_type: '',
             wheel_size: '',
             tire_clearance: '',
-            project_status: '',
+            progress_status: '',
+            date_created: new Date(),
+            projected_due_date: '',
             client_id: this.props.match.params.id,
         })
         this.props.history.push('/home');
@@ -119,6 +123,16 @@ class ProjectPage extends Component {
     handleChangeDeepCustom = (event) => {
         this.setState({
             deep_custom: event.target.value,
+        });
+    }
+    handleChangeDueDate = (event) => {
+        this.setState({
+            projected_due_date: event.target.value,
+        });
+    }
+    handleChangeProjectStatus = (event) => {
+        this.setState({
+            progress_status: event.target.value,
         });
     }
     handleChangeProjectDesc = (event) => {
@@ -227,16 +241,16 @@ class ProjectPage extends Component {
                             <Table className="admin_table">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Customer Name</TableCell>
                                         <TableCell>Project</TableCell>
-                                        <TableCell>email</TableCell>
-                                        <TableCell>Phone Number</TableCell>
+                                        <TableCell>Brand</TableCell>
+                                        <TableCell>Status</TableCell>
+                                        <TableCell>Date Due</TableCell>
                                         <TableCell></TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {this.props.reduxStore.addCust.customerReducer.map(client =>
-                                        <ProjectRow key={client.id} history={this.props.history} client={client} />
+                                    {this.props.reduxStore.project.projectReducer.map(work =>
+                                        <ProjectRow key={work.id} history={this.props.history} work={work} />
                                     )}
 
 
@@ -274,6 +288,24 @@ class ProjectPage extends Component {
                                 label="Deep Custom"
                                 value={this.state.deep_custome}
                                 onChange={this.handleChangeDeepCustom}
+                            />
+                            <TextField
+                                id="outlined-name"
+                                margin="normal"
+                                variant="outlined"
+                                style={{ margin: 10 }}
+                                label="Date Due"
+                                value={this.state.projected_due_date}
+                                onChange={this.handleChangeDueDate}
+                            />
+                            <TextField
+                                id="outlined-height"
+                                margin="normal"
+                                variant="outlined"
+                                style={{ margin: 10 }}
+                                label="Status"
+                                value={this.state.progress_status}
+                                onChange={this.handleChangeProgressStatus}
                             />
                             {/* <Select
                                 native

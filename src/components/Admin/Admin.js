@@ -50,7 +50,7 @@ class Admin extends Component {
       <Table className="admin_table">
         <TableHead>
           <TableRow>
-            <TableCell>Project Name</TableCell>
+            <TableCell>Customer Name</TableCell>
             <TableCell>Pronouns</TableCell>
             <TableCell>email</TableCell>
             <TableCell>Phone Number</TableCell>
