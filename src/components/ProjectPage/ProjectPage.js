@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 import Card from '@material-ui/core/Card';
-import Select from '@material-ui/core/Select';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
+// import Select from '@material-ui/core/Select';
+// import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 class ProjectPage extends Component {
     constructor(props) {
@@ -37,14 +37,17 @@ class ProjectPage extends Component {
     }
     componentDidMount() {
         this.custName();
+        this.props.dispatch({type: 'FETCH_CUSTOMER'});
+         
     }
     //Send project info to saga
     projectIn = (event) => {
-        console.log('projectIn');
+        console.log('project In');
         const action = {
           type: 'ADD_PROJECT',
           payload: this.state,
         };
+        console.log('sending to project saga')
         this.props.dispatch(action);
         this.setState({
             customer_name: '',
@@ -70,8 +73,9 @@ class ProjectPage extends Component {
             tire_clearance: '',
             client_id: this.props.match.params.id,
         })
-        // this.props.history.push('');
+        this.props.history.push('/home');
       }
+      
 
 
     // make axios request to /intake/${this.props.match.params.id}
@@ -97,7 +101,7 @@ class ProjectPage extends Component {
         })
       }
     handleChangeBrand = (event) => {
-        console.log('name')
+        console.log('brand')
         this.setState({
           brand: event.target.value,
         })
@@ -221,7 +225,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Project Name"
-                                value={this.state.project_name}
+                                // value={this.state.project_name}
                                 onChange={this.props.handleChangeProjectName}
                             />
                             <TextField
@@ -233,7 +237,17 @@ class ProjectPage extends Component {
                                 value={this.state.brand}
                                 onChange={this.handleChangeBrand}
                             />
-                            <Select
+                            <TextField
+                                style={{ margin: 10 }}
+                                id="outlined-name"
+                                margin="normal"
+                                variant="outlined"
+                                placeholder="false"
+                                lable="Deep Custome"
+                                value={this.state.deep_custome}
+                                onChange={this.handleChangeDeepCustome}
+                            />
+                            {/* <Select
                                 native
                                 value={this.state.deep_custom}
                                 style={{ margin: 10 }}
@@ -249,7 +263,7 @@ class ProjectPage extends Component {
                                 <option>False</option>
                                 <option>True</option>
 
-                            </Select>
+                            </Select> */}
 
                             <TextField
                                 id="outlined-name"

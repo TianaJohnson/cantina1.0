@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post('/', (req, res, next) => {
     console.log(req.body);
+    if (req.isAuthenticated()) {
     const queryText = `INSERT INTO "customer_info"
                      ("customers_full_name", 
                       "pro_nouns", 
@@ -25,13 +26,16 @@ router.post('/', (req, res, next) => {
             
             res.sendStatus(500);;
         });
+    }
 });
 
 router.get('/', (req, res) => {
     console.log('in GET ')
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user);
-        pool.query(`SELECT * FROM "customer_info" ORDER BY "id" DESC;`)
+        pool.query(`SELECT * FROM "customer_info" 
+                    WHERE "is_active" = TRUE 
+                    ORDER BY "id" DESC;`)
             .then(results => {
                 console.log(results.rows)
                 res.send(results.rows)
