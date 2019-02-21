@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+// create new customer
 router.post('/', (req, res, next) => {
     console.log(req.body);
     if (req.isAuthenticated()) {
@@ -29,6 +30,7 @@ router.post('/', (req, res, next) => {
     }
 });
 
+//display active customers
 router.get('/', (req, res) => {
     console.log('in GET ')
     if (req.isAuthenticated()) {
@@ -50,6 +52,7 @@ router.get('/', (req, res) => {
     }
   });
 
+  //get specific customer information by id
   router.get('/:id', (req, res) => {
     console.log('in GET id ')
     if (req.isAuthenticated()) {
@@ -70,6 +73,7 @@ router.get('/', (req, res) => {
     }
   });
 
+  //update customer information by id
   router.put('/update/:id', (req, res) => {
       console.log('in put',req.params.id);
       if(req.isAuthenticated()){
@@ -98,16 +102,15 @@ router.get('/', (req, res) => {
       }
   })
 
-
+// archive customer information by id
   router.put('/archive/:id', (req, res) => {
-    console.log('in project put',req.params.id);
+    console.log('in customer activity  put',req.params.id);
     if(req.isAuthenticated()){
         console.log('in authentication put', req.params.id);
-        const queryText = `UPDATE "project"
-                           SET "is_active" = $1,
-                           WHERE "id" = $2;`;
-      pool.query(queryText, [req.body.is_active,
-                              req.body.id])
+        const queryText = `UPDATE "customer_info"
+                           SET "is_active" = false 
+                           WHERE "id" = $1;`;
+      pool.query(queryText, [req.params.id])
       .then(() => {
           console.log( 'server side project Put');
           res.sendStatus(201);

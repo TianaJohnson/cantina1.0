@@ -11,17 +11,18 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import AdminRow from './AdminRow';
 
-
 const styles = {
   card: {
     minWidth: 275,
     margin: 20,
     padding: 50,
   },
+  tablehead: {
+   fontSize: '70px',
+  }
 };
 
-  
-
+  //Class constructor
 class Admin extends Component {
   componentDidMount() {
     this.props.dispatch({type: 'FETCH_CUSTOMER'});

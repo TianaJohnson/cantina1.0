@@ -17,7 +17,6 @@ class AdminRow extends Component {
         }
     }
 
-
     editCust = () => {
         this.props.history.push(`updatecustomer/${this.props.client.id}`);
     }
@@ -26,18 +25,26 @@ class AdminRow extends Component {
         this.props.history.push(`/file/${this.props.client.id}`);
     }
 
-    archiveFile = (event) => {
-        this.setState({
-            is_active: false,
-        })
-        console.log('archive cust');
+    // archiveFile = (event) => {
+    //     this.setState({
+    //         is_active: false,
+    //     })
+    //   }
+
+
+    archiveCust = (event) => {
+        console.log('archive customer sending to customer sagas');
         const action = {
-          type: 'ARCHIVE_CUSTOMER',
-          payload: this.state,
+            type: 'ARCHIVE_CUSTOMER',
+            payload: {
+                        is_active: false, id:this.props.client.id,
+                    },
         };
+        console.log('archived!!!!')
         this.props.dispatch(action);
-        this.props.history.push('/home');
-      }
+        // this.props.history.push('/home')
+    } 
+
 
 
     // breakdown of customer info in the table from admin page
@@ -63,7 +70,7 @@ class AdminRow extends Component {
                 </Button>
                     <Button variant="outlined"
                         color="inherit"
-                        onClick={this.archiveFile}
+                        onClick={this.archiveCust}
                         style={{ margin: 10 }}>
                         Delete
                     </Button>

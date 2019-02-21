@@ -248,9 +248,12 @@ class ProjectPage extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {/* {this.props.reduxStore.project.projectReducer.map(work =>
+                                    {/* {JSON.stringify(this.props.reduxStore.project.projectReducer)} */}
+                                    {/* {this.props.reduxStore.project.projectReducer.length >= 1 && ( */}
+                                        {this.props.reduxStore.project.projectReducer.map(work =>
                                         <ProjectRow key={work.id} history={this.props.history} work={work} />
-                                    )} */}
+                                        )}
+                                    {/* ))} */}
                                 </TableBody>
                             </Table>
                         </div>

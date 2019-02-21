@@ -51,14 +51,14 @@ function* updateCustomer(action) {
 // archive customer no delete
 // acts as a Delete
 function* archiveCustomer(action) {
-  console.log('In saga Put', action.payload)
+  console.log('In saga archive Put', action.payload.id)
   try {
     yield axios.put(`/intake/archive/${action.payload.id}`, action.payload);
-    yield alert('Customer Info Updated.')
+    yield alert('Customer Deleted.')
     yield put({ type: 'FETCH_CUSTOMER' });
   }catch(error){
-    console.log('Unable to update customer info', error);
-    alert('Unable to update customer information', error);
+    console.log('Unable to delete customer info', error);
+    alert('Unable to delete customer information', error);
   }
 }
   

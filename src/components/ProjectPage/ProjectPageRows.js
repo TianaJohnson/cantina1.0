@@ -9,6 +9,11 @@ import Button from '@material-ui/core/Button';
 
 
 class ProjectPageRows extends Component {
+    // componentDidMount() {
+    //     this.props.dispatch({ type: 'FETCH_PROJECT' });
+    // }
+
+
     editCust = () => {
         this.props.history.push(`updatecustomer/${this.props.client.id}`);
     }
@@ -16,11 +21,6 @@ class ProjectPageRows extends Component {
     custFile = () => {
         this.props.history.push(`/file/${this.props.client.id}`);
     }
-
-    archiveFile = () => {
-        
-    }
-
 
     // breakdown of customer info in the table from admin page
     render() {
@@ -30,27 +30,6 @@ class ProjectPageRows extends Component {
                 <TableCell>{this.props.work.brand}</TableCell>
                 <TableCell>{this.props.work.progress_status}</TableCell>
                 <TableCell>{this.props.work.projected_due_date}</TableCell>
-                <TableCell> <Button variant="outlined"
-                    size="small"
-                    onClick={this.editCust}
-                    color="primary"
-                    style={{ margin: 10 }}>
-                    Edit
-                </Button>
-                    <Button variant="outlined"
-                        color="secondary"
-                        onClick={this.custFile}
-                        style={{ margin: 10 }}>
-                        Customer File
-                </Button>
-                    <Button variant="outlined"
-                        color="inherit"
-                        onClick={this.custFile}
-                        style={{ margin: 10 }}>
-                        Delete
-                    </Button>
-                </TableCell>
-
             </TableRow>
         )
     }

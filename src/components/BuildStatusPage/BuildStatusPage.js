@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Card from '@material-ui/core/Card';
 // import Button from '@material-ui/core/Button';
 
 class BuildStatusPage extends Component {
@@ -8,8 +9,10 @@ class BuildStatusPage extends Component {
     //may not need this page..
     render() {
         return (
-            <div className="project_main">
+            <div className="build_main">
+                <Card className="build_card">
                 <h1>Build Status</h1>
+                </Card>
             </div>
         )
     }

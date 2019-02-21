@@ -60,10 +60,6 @@ class AddNewCustomer extends Component {
       // this.loadState(upCust);
     }
   }
-  // on click sends home
-  backDash = () => {
-    this.props.history.push('/home')
-  }
 
   //saga post to update/edit current customer info
   updateCust = (event) => {

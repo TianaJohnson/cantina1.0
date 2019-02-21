@@ -73,18 +73,20 @@ router.post('/:id', (req, res, next) => {
 });
 
 
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
     console.log('in GET project get id ')
+    console.log('req.paramsvsfdvsf:', req.user.id);
     if (req.isAuthenticated()) {
-        console.log('req.user:', req.user);
-        pool.query(`SELECT * FROM "project" 
-                    WHERE "client_id" = $1;`, [req.params.id])
+        console.log('req.user:', req.user.id);
+        pool.query(`SELECT * FROM "project"
+                    JOIN "customer_info" ON "project"."client_id" = "customer_info"."id"
+                    WHERE "project"."client_id" = $1;`, [req.user.id])
             .then(results => {
                 console.log(results.rows[0])
                 res.send(results.rows[0])
             })
             .catch(error => {
-                console.log('Error making SELECT for customer info database:', error);
+                console.log('Error making SELECT for project database:', error);
                 res.sendStatus(500);
             });
     } else {

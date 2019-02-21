@@ -5,7 +5,7 @@ const projectReducer = (state = [], action) => {
       switch (action.type) {
         case 'SET_PROJECT':
         console.log('action.paylod:', action.payload)
-          return action.payload;
+          return [...state, action.payload];
       
         default:
         console.log('state:', state)

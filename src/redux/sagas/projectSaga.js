@@ -13,8 +13,9 @@ function* addProject(action) {
 }
 function* fetchProject(action) {
     console.log('get project server 1');
+    console.log('action:')
     try{
-    const responseFromServer = yield axios.get(`/project/${action.payload}`);
+    const responseFromServer = yield axios.get(`/project`);
     yield put({ type: 'SET_PROJECT', payload: responseFromServer.data});
     console.log('response from project server is:',responseFromServer.data)
   } catch (error) {

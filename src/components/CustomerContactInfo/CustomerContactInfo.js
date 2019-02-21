@@ -12,8 +12,7 @@ class CustomerContactInfo extends Component {
             customers_name: '',
             pro_nouns: '',
             email: '',
-            phone_number: '',
-            customer_notes: '',
+            phone_number: ''
 
         }
     }
@@ -34,7 +33,6 @@ class CustomerContactInfo extends Component {
                     pro_nouns: response.data.pro_nouns,
                     email: response.data.email,
                     phone_number: response.data.phone_number,
-                    customer_notes: response.data.customer_notes,
                   })
         });
     }
@@ -53,7 +51,6 @@ class CustomerContactInfo extends Component {
                 <h2>Prefered pronouns: {this.state.pro_nouns}</h2>
                 <h2>Email address: {this.state.email}</h2>
                 <h2>Phone number: {this.state.phone_number}</h2>
-                <h2>Notes: {this.state.customer_notes}</h2> 
                 <br/>            
             </div>
         )
