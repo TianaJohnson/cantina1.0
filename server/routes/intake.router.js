@@ -12,20 +12,31 @@ router.post('/', (req, res, next) => {
                       "email",
                       "phone_number", 
                       "customer_notes") 
-                      VALUES ($1, $2, $3, $4, $5);`;
+                      VALUES ($1, $2, $3, $4, $5) RETURNING "id";`;
     pool.query(queryText, [req.body.customers_full_name,
                            req.body.pro_nouns,
                            req.body.email,
                            req.body.phone_number,
                            req.body.customer_notes])
-        .then(() => {
-            console.log( 'server side intake Post');
-            res.sendStatus(201);
+        .then((results) => {
+            // Insert empty project for new customer
+            const anotherQuery = `INSERT INTO "project"
+                     ("client_id", 
+                      "user_id") 
+                      VALUES ($1, $2);`;
+                      pool.query(anotherQuery, [results.rows[0].id,
+                        req.user.id]).then(() => {
+                            console.log( 'server side intake Post');
+                            res.sendStatus(201);
+                        }).catch(error => {
+                            res.sendStatus(500);
+                        })
+            
         })
         .catch((error) => {
             console.log('Something went wrong in intake post', error);
             
-            res.sendStatus(500);;
+            res.sendStatus(500);
         });
     }
 });

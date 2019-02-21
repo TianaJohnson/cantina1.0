@@ -14,38 +14,15 @@ import ProjectRow from './ProjectPageRows';
 // import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 class ProjectPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            customer_name: '',
-            project_name: '',
-            brand: '',
-            deep_custom: false,
-            project_desc: '',
-            cust_height: '',
-            cust_inseam: '',
-            cust_torso: '',
-            cust_flex: 0,
-            cust_reach: '',
-            head_tube: '',
-            steerer_tube: '',
-            down_tube: '',
-            seat_tube: '',
-            bottom_bracket: '',
-            seat_stays: '',
-            chain_stays: '',
-            drop_outs: '',
-            brake_type: '',
-            wheel_size: '',
-            tire_clearance: '',
-            project_status: '',
-            date_created: new Date(),
-            projected_due_date: '',
-            client_id: this.props.match.params.id,
-        }
-    }
+
+    //client_id: this.props.match.params.id,
+
+
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_PROJECT' });
+        // clear any previously selected project
+        this.props.dispatch({ type: 'CLEAR_PROJECT' });
+        // get the project we want
+        this.props.dispatch({ type: 'FETCH_PROJECT', payload: {id: this.props.match.params.id} });
         this.custName();
     }
     //Send project info to saga
@@ -53,7 +30,7 @@ class ProjectPage extends Component {
         console.log('project In');
         const action = {
             type: 'ADD_PROJECT',
-            payload: this.state,
+            payload: this.props.reduxStore.project.projectReducer,
         };
         console.log('sending to project saga')
         this.props.dispatch(action);
@@ -98,10 +75,19 @@ class ProjectPage extends Component {
             url: `/intake/${this.props.match.params.id}`
         }).then((response) => {
             console.log('Get', response);
-            this.setState({
-                customer_name: response.data.customers_full_name,
-            });
+            // this.setState({
+            //     customer_name: response.data.customers_full_name,
+            // });
         });
+    }
+
+    handleChange = (key) => (event) => {
+        const action = {
+            type: 'SET_PROJECT_PROPERTY',
+            payload: {key: key, value: event.target.value},
+        };
+        console.log('sending to project saga')
+        this.props.dispatch(action);
     }
 
     // input onChange handles
@@ -230,33 +216,15 @@ class ProjectPage extends Component {
 
     //Project main page
     render() {
+        const project = this.props.reduxStore.project.projectReducer;
         return (
             <div className="project_page">
                 <Card className="file_card">
                     <div className="cust_info">
                         <h1>Project Page</h1>
-                        <h2>Customer: {this.state.customer_name}'s</h2>
-                        <div>
-                            <Table className="admin_table">
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>Project</TableCell>
-                                        <TableCell>Brand</TableCell>
-                                        <TableCell>Status</TableCell>
-                                        <TableCell>Date Due</TableCell>
-                                        <TableCell></TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {/* {JSON.stringify(this.props.reduxStore.project.projectReducer)} */}
-                                    {/* {this.props.reduxStore.project.projectReducer.length >= 1 && ( */}
-                                        {this.props.reduxStore.project.projectReducer.map(work =>
-                                        <ProjectRow key={work.id} history={this.props.history} work={work} />
-                                        )}
-                                    {/* ))} */}
-                                </TableBody>
-                            </Table>
-                        </div>
+                        <h2>Customer: {project.customers_full_name}'s</h2>
+                        {JSON.stringify(project)}
+                        
                         <h3>Build Information</h3>
                     </div>
                     <div className="file_text">
@@ -267,8 +235,8 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Project Name"
-                                value={this.state.project_name}
-                                onChange={this.handleChangeProjectName}
+                                value={project.project_name}
+                                onChange={this.handleChange('project_name')}
                             />
                             <TextField
                                 id="outlined-height"
@@ -276,7 +244,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Brand"
-                                value={this.state.brand}
+                                value={project.brand}
                                 onChange={this.handleChangeBrand}
                             />
                             <TextField
@@ -286,7 +254,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 placeholder="false"
                                 label="Deep Custom"
-                                value={this.state.deep_custome}
+                                value={project.deep_custome}
                                 onChange={this.handleChangeDeepCustom}
                             />
                             <TextField
@@ -295,7 +263,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Date Due"
-                                value={this.state.projected_due_date}
+                                value={project.projected_due_date}
                                 onChange={this.handleChangeDueDate}
                             />
                             <TextField
@@ -304,12 +272,12 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Status"
-                                value={this.state.progress_status}
+                                value={project.progress_status}
                                 onChange={this.handleChangeProgressStatus}
                             />
                             {/* <Select
                                 native
-                                value={this.state.deep_custom}
+                                value={project.deep_custom}
                                 style={{ margin: 10 }}
                                 onChange={this.handleChangeDeepCustome}
                                 input={
@@ -332,7 +300,7 @@ class ProjectPage extends Component {
                                 placeholder="   This field's intended use is to quickly take in the customers personal vision and description of the bike the with to have built. Such info would include paint color themes or desired use of bike, "
                                 multiline rows="10"
                                 fullWidth
-                                value={this.state.project_desc}
+                                value={project.project_desc}
                                 onChange={this.handleChangeProjectDesc}
                             />
                             <div className="file_text">
@@ -344,7 +312,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Height"
-                                value={this.state.cust_height}
+                                value={project.cust_height}
                                 onChange={this.handleChangeCustHeight}
                             />
                             <TextField
@@ -353,7 +321,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Inseam"
-                                value={this.state.cust_inseam}
+                                value={project.cust_inseam}
                                 onChange={this.handleChangeCustInseam}
                             />
                             <TextField
@@ -362,7 +330,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Torso"
-                                value={this.state.cust_torso}
+                                value={project.cust_torso}
                                 onChange={this.handleChangeCustTorso}
                             />
                             <TextField
@@ -372,7 +340,7 @@ class ProjectPage extends Component {
                                 style={{ margin: 10 }}
                                 label="Preceived Flexability"
                                 placeholder="1-10"
-                                value={this.state.cust_flex}
+                                value={project.cust_flex}
                                 onChange={this.handleChangeCustFelx}
                             />
                             <TextField
@@ -381,7 +349,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Reach"
-                                value={this.state.cust_reach}
+                                value={project.cust_reach}
                                 onChange={this.handleChangeCustReach}
                             />
                             <div className="file_text">
@@ -394,7 +362,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Head Tube Angle/Size"
-                                value={this.state.head_tube}
+                                value={project.head_tube}
                                 onChange={this.handleChangeHeadTube}
                             />
                             <TextField
@@ -403,7 +371,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Steerer Tube"
-                                value={this.state.steerer_tube}
+                                value={project.steerer_tube}
                                 onChange={this.handleChangeSteererTube}
                             />
                             <TextField
@@ -412,7 +380,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Top Tube Angle/Length"
-                                value={this.state.top_tube}
+                                value={project.top_tube}
                                 onChange={this.handleChangeTopTube}
                             />
                             <TextField
@@ -421,7 +389,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Down Tube Angle/Length"
-                                value={this.state.down_tube}
+                                value={project.down_tube}
                                 onChange={this.handleChangeDownTube}
                             />
                             <TextField
@@ -430,7 +398,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Seat Tube Angle/Length"
-                                value={this.state.seat_tube}
+                                value={project.seat_tube}
                                 onChange={this.handleChangeSeatTube}
                             />
                             <TextField
@@ -439,7 +407,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Botom Bracket"
-                                value={this.state.bottom_bracket}
+                                value={project.bottom_bracket}
                                 onChange={this.handleChangeBottomBracket}
                             />
                             <TextField
@@ -448,7 +416,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Seat Stays"
-                                value={this.state.seat_stays}
+                                value={project.seat_stays}
                                 onChange={this.handleChangeSeatStays}
                             />
                             <TextField
@@ -457,7 +425,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Chain Stays"
-                                value={this.state.chain_stays}
+                                value={project.chain_stays}
                                 onChange={this.handleChangeChainStays}
                             />
                             <TextField
@@ -466,7 +434,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Dropout"
-                                value={this.state.drop_outs}
+                                value={project.drop_outs}
                                 onChange={this.handleChangeDropOuts}
                             />
                             <TextField
@@ -475,7 +443,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Brake Type"
-                                value={this.state.brake_type}
+                                value={project.brake_type}
                                 onChange={this.handleChangeBrakeType}
                             />
                             <TextField
@@ -484,7 +452,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Wheel Size"
-                                value={this.state.wheel_size}
+                                value={project.wheel_size}
                                 onChange={this.handleChangeWheelSize}
                             />
                             <TextField
@@ -493,7 +461,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Tire Clearance"
-                                value={this.state.tire_clearance}
+                                value={project.tire_clearance}
                                 onChange={this.handleChangeTireClear}
                             />
 
