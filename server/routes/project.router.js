@@ -3,37 +3,35 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 // post -> put && insert -> update
-router.post('/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
     console.log(req.user.id);
+    console.log('params', req.params.id);
     if (req.isAuthenticated()) {
-    const queryText = `INSERT INTO "project"
-                     ("project_name",
-                      "brand",
-                      "deep_custom",
-                      "project_desc",
-                      "cust_height",
-                      "cust_inseam",
-                      "cust_torso",
-                      "cust_flex",
-                      "cust_reach",
-                      "head_tube",
-                      "steerer_tube",
-                      "down_tube",
-                      "seat_tube",
-                      "bottom_bracket",
-                      "seat_stays",
-                      "chain_stays",
-                      "drop_outs",
-                      "brake_type",
-                      "wheel_size",
-                      "tire_clearance",
-                      "progress_status",
-                      "date_created",
-                      "projected_due_date")
-                      VALUES ($1, $2, $3, $4, $5, $6, $7,
-                              $8, $9, $10, $11, $12, $13, $14,
-                              $15, $16, $17, $18, $19, $20,
-                              $21, $22, $23);`;
+    const queryText = `UPDATE "project"
+                       SET "project_name" = $1,
+                           "brand" = $2,
+                           "deep_custom" = $3,
+                           "project_desc" = $4,
+                           "cust_height" = $5,
+                           "cust_inseam" = $6,
+                           "cust_torso" = $7,
+                           "cust_flex" = $8,
+                           "cust_reach" = $9,
+                           "head_tube" = $10,
+                           "steerer_tube" = $11,
+                           "down_tube" = $12,
+                           "seat_tube" = $13,
+                           "bottom_bracket" = $14,
+                           "seat_stays" = $15,
+                           "chain_stays" = $16,
+                           "drop_outs" = $17,
+                           "brake_type" = $18,
+                           "wheel_size" = $19,
+                           "tire_clearance" = $20,
+                           "progress_status" = $21,
+                           "date_created" = $22,
+                           "projected_due_date" = $23
+                           WHERE "client_id" = $24;`;
     pool.query(queryText, [req.body.project_name,
                             req.body.brand,
                             req.body.deep_custom,
@@ -57,8 +55,7 @@ router.post('/:id', (req, res, next) => {
                             req.body.progress_status,
                             req.body.date_created, 
                             req.body.projected_due_date,
-                            req.body.client_id,
-                            req.user.id])
+                            req.params.id ])
         .then(() => {
             console.log('server side project Post');
             res.sendStatus(201);

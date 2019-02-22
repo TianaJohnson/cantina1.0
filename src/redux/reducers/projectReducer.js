@@ -9,7 +9,7 @@ const emptyProject = {
             cust_height: '',
             cust_inseam: '',
             cust_torso: '',
-            cust_flex: 0,
+            cust_flex: '',
             cust_reach: '',
             head_tube: '',
             steerer_tube: '',
