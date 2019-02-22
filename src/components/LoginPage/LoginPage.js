@@ -32,6 +32,8 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="login-page">
+      <br/>
+      <br/>
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -73,18 +75,19 @@ class LoginPage extends Component {
               name="submit"
               value="Log In"
             />
-          </div>
-          
-        </form>
-        <center>
+          <center>
           <button
             type="button"
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
           >
-            Register
+            <h3>Register</h3>
           </button>
         </center>
+        </div>
+        </form>
+        <br/>
+        <br/>
       </div>
     );
   }

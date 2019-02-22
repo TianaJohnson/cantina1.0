@@ -7,20 +7,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import AdminRow from './AdminRow';
+import UserHeader from './../userHeader/userHeader';
 
-const styles = {
-  card: {
-    minWidth: 275,
-    margin: 20,
-    padding: 50,
-  },
-  tablehead: {
-   fontSize: '70px',
-  }
-};
 
   //Class constructor
 class Admin extends Component {
@@ -38,7 +28,8 @@ class Admin extends Component {
       return(
         <div className="admin_main">
           <Card className="admin_card">
-     <div>
+     <div className="admin_text">
+       <UserHeader match={this.props.match} history={this.props.history}/>
        <h1>Customers</h1>
        <Button variant="outlined"
                     color="primary"
@@ -67,6 +58,7 @@ class Admin extends Component {
         </TableBody>
       </Table>
     </Paper>
+    
     </Card>
     </div>
     
@@ -78,5 +70,5 @@ const mapStateToProps = reduxStore => {
   return { reduxStore: reduxStore };
 }
 // this allows us to use <App /> in index.js
-export default withStyles(styles)(connect(mapStateToProps)(Admin));
+export default connect(mapStateToProps)(Admin);
 

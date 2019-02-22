@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import Card from '@material-ui/core/Card';
 
 class RegisterPage extends Component {
   state = {
@@ -31,7 +32,10 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="reg_div">
+      <br/>
+      <br/>
+        <Card className="reg_card">
         {this.props.errors.registrationMessage && (
           <h2
             className="alert"
@@ -82,6 +86,9 @@ class RegisterPage extends Component {
             Login
           </button>
         </center>
+        </Card>
+        <br/>
+        <br/>
       </div>
     );
   }
