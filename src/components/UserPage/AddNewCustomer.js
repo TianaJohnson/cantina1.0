@@ -137,11 +137,11 @@ class AddNewCustomer extends Component {
       <br/>
       <br/>
       <Card className="add_card">
+      <div className="addcust_text">
+      <br/>
+      New Customer Intake:
         <form className="form_newCust" >
         <br/>
-        <div className="addcust_text">
-          New Customer Intake:
-          </div>
         <br />
           <TextField
             style={{ margin: 10 }}
@@ -214,12 +214,13 @@ class AddNewCustomer extends Component {
                 style={{ margin: 10 }}
                 variant="contained"
                 color="primary"
-                className="addCustBtn">
+                className="addCustBtn"
+                size="large">
                 Add
            </Button>
           }
         </form>
-        
+        </div>
       </Card>
       <br/>
       <br/>

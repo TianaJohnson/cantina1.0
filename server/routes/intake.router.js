@@ -40,7 +40,7 @@ router.post('/', (req, res, next) => {
             });
     }
 });
-// I learned that by joinong these two tables it makes it so my archive button doesnt work.
+// I learned that by joining these two tables it makes it so my archive button doesnt work.
 //JOIN "project" ON "customer_info"."id" = "project"."client_id"
 //display active customers
 router.get('/', (req, res) => {
