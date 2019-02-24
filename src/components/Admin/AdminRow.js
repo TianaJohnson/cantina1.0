@@ -52,22 +52,21 @@ class AdminRow extends Component {
         return (
             <TableRow>
                 <TableCell>{this.props.client.customers_full_name}</TableCell>
-                <TableCell>{this.props.client.project_name}</TableCell>
-                <TableCell>{this.props.client.progress_status}</TableCell>
-                <TableCell>{this.props.client.projected_due_date}</TableCell>
+                <TableCell>{this.props.client.phone_number}</TableCell>
                 <TableCell> <Button variant="outlined"
                     size="small"
                     onClick={this.editCust}
                     color="primary"
                     style={{ margin: 10 }}>
                     Edit
-                </Button>
-                    <Button variant="outlined"
+                </Button></TableCell>
+                <TableCell><Button variant="outlined"
                         color="secondary"
                         onClick={this.custFile}
                         style={{ margin: 10 }}>
                         Customer File
-                </Button>
+                </Button></TableCell>
+                <TableCell> 
                     <Button variant="outlined"
                         color="inherit"
                         onClick={this.archiveCust}

@@ -87,8 +87,7 @@ input {
 
     border-radius: 2px;    
 }
-
-.project_page {
+.project_page, .notes_main {
     /* padding: 20px; */
     background-image: url("/images/workbench.JPG");
     background-repeat: no-repeat;
@@ -105,10 +104,15 @@ input {
 .project_contact_name {
     text-align: center;
 }
-.file_card {
+
+.file_card, .notes_card {
     opacity: 0.7;  
     margin-left: 50px; 
     margin-right: 50px;
+}
+.card_notes {
+    margin:30px;
+    
 }
 .file_text {
     margin: 10px;
@@ -137,7 +141,7 @@ input {
     font-family: 'Vampiro One', cursive;
     margin: 10px;
     font-size: 40px;
-    text-decoration: underline;
+    
 }
 .new-cust-intake {
     padding:30px;
@@ -157,16 +161,16 @@ input {
     text-align: center;
     margin-bottom:50px;
 }
-.fit_text {
+.fit_text, .notes_text {
     margin: 20px;
 }
 
-.build_main, .notes_main {
+.build_main{
     background-image: url("/images/workbench.JPG");
     background-repeat: no-repeat;
     background-size: cover;
 }
-.build_card, .notes_card, .contact_card{
+.build_card, .notes_card{
     opacity: 0.8;  
     margin-left: 50px; 
     margin-right: 50px;
@@ -192,7 +196,7 @@ input {
     background-size: cover;
     margin-Top: auto;
 }
-.project_contact{
+/* .project_contact{
     background-image: url("/images/lamp1.JPG");
-}
+} */
 

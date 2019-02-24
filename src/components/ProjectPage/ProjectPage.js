@@ -3,20 +3,17 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
+// import axios from 'axios';
 
 
 class ProjectPage extends Component {
 
     //client_id: this.props.match.params.id,
-
-
     componentDidMount() {
-        // clear any previously selected project
-        // this.props.dispatch({ type: 'CLEAR_PROJECT' });
-        // get the project we want
-        this.props.dispatch({ type: 'FETCH_CUSTOMER' });
-        this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });
+        // this.props.dispatch({ type: 'FETCH_FOCUS_CUSTOMER' });
         // this.custName();
+        this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });
+        
     }
     //Send project info to saga
     projectIn = (event) => {
@@ -54,13 +51,13 @@ class ProjectPage extends Component {
             projected_due_date: '',
             client_id: this.props.match.params.id,
         })
-        this.props.history.push('/home');
+        // this.props.history.push('/home');
     }
 
 
 
     // make axios request to /intake/${this.props.match.params.id}
-    //To display customers name on the file attached to them
+    // To display customers name on the file attached to them
     // custName = () => {
     //     console.log('Get axios ');
     //     axios({
@@ -68,9 +65,9 @@ class ProjectPage extends Component {
     //         url: `/intake/${this.props.match.params.id}`
     //     }).then((response) => {
     //         console.log('Get', response);
-    //         // this.setState({
-    //         //     customer_name: response.data.customers_full_name,
-    //         // });
+    //         this.setState({
+    //             customer_name: response.data.customers_full_name,
+    //         });
     //     });
     // }
 
@@ -103,6 +100,7 @@ class ProjectPage extends Component {
                 <Card className="file_card">
                     <div className="cust_info">
                         <h1>Project Page</h1>
+                        {/* {JSON.stringify(project.customers_full_name)} */}
                         <h2>Customer: {project.customers_full_name}'s</h2>
 
                         <h3>Build Information</h3>

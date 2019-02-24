@@ -16,6 +16,7 @@ import UserHeader from './../userHeader/userHeader';
 class Admin extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_CUSTOMER' });
+    // this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });
   }
 
   // on click of btn, sends user to new customer page
@@ -44,9 +45,9 @@ class Admin extends Component {
    <TableHead>
      <TableRow>
        <TableCell>Customer Name</TableCell>
-       <TableCell>Project</TableCell>
-       <TableCell>Status</TableCell>
-       <TableCell>Due Date</TableCell>
+       <TableCell>Phone</TableCell>
+       <TableCell>Edit Customer Info</TableCell>
+       <TableCell>View/Edit</TableCell>
        <TableCell></TableCell>
      </TableRow>
    </TableHead>

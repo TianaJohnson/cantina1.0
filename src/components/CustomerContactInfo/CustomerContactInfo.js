@@ -5,13 +5,6 @@ import Card from '@material-ui/core/Card';
 
 class CustomerContactInfo extends Component {
 
-    
-    componentDidMount() {
-        
-    }
-
-
-
     //may not need this page..
     render() {
         return (
@@ -21,7 +14,7 @@ class CustomerContactInfo extends Component {
                 <h1>Contact Info</h1>
                 <br/>
                 </div>
-                <br/> 
+                <br/>
                 </Card>           
             </div>
         )

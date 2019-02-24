@@ -5,7 +5,7 @@ function* addProject(action) {
     console.log('project post saga');
     try {
         yield axios.put(`/project/${action.payload.id}`, action.payload);
-        yield alert('Project added.');
+        // yield alert('Project added.');
         // yield put({ type: 'FETCH_PROJECT', payload: action.payload});
     }catch (error) {
         console.log('Error in add project:', error);

@@ -98,11 +98,11 @@ router.put('/update/:id', (req, res) => {
                                  "customer_notes" = $5
                              WHERE "id" = $6;`;
         pool.query(queryText, [req.body.customers_full_name,
-        req.body.pro_nouns,
-        req.body.email,
-        req.body.phone_number,
-        req.body.customer_notes,
-        req.body.id])
+                                req.body.pro_nouns,
+                                req.body.email,
+                                req.body.phone_number,
+                                req.body.customer_notes,
+                                req.body.id])
             .then(() => {
                 console.log('server side Put');
                 res.sendStatus(201);
@@ -120,8 +120,8 @@ router.put('/archive/:id', (req, res) => {
     if (req.isAuthenticated()) {
         console.log('in authentication put', req.params.id);
         const queryText = `UPDATE "customer_info"             
-                           SET "is_active" = $1 
-                           WHERE "id" = $2;`;
+                           SET "is_active" = false 
+                           WHERE "id" = $1;`;
         pool.query(queryText, [ req.body.is_active,
                                 req.params.id])
             .then(() => {

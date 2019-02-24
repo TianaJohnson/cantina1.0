@@ -51,15 +51,15 @@ class CustomerToolBar extends Component {
                         <Tab label="Project" />
                         <Tab label="Fit Data" />
                         <Tab label="Build Status" />
-                        <Tab label="Notes" />
-                        <Tab label="Contact Information" />
+                        {/* <Tab label="" /> */}
+                        {/* <Tab label="Contact Information" /> */}
                     </Tabs>
                 </AppBar>
                 {value === 0 && <ProjectPage match={this.props.match} history={this.props.history}/>} 
                 {value === 1 && <FitDataPage match={this.props.match} history={this.props.history}/>}
-                {value === 2 && <BuildStatusPage match={this.props.match} history={this.props.history}/>}
-                {value === 3 && <CustomerNotesPage match={this.props.match} history={this.props.history}/>}
-                {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>}
+                {/* {value === 2 && <BuildStatusPage match={this.props.match} history={this.props.history}/>} */}
+                {value === 2 && <CustomerNotesPage match={this.props.match} history={this.props.history}/>}
+                {/* {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>} */}
             </Paper>
         )
     }

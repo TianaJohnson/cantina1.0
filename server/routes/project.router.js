@@ -71,9 +71,9 @@ router.put('/:id', (req, res, next) => {
 
 router.get('/:id', (req, res) => {
     console.log('in GET project get id ')
-    console.log('req.paramsvsfdvsf:', req.user.id);
+    console.log('req.params: project get', req.user.id);
     if (req.isAuthenticated()) {
-        //console.log('req.user:', req.user.id);
+        console.log('req.user:', req.user.id);
         pool.query(`SELECT * FROM "project"
                     JOIN "customer_info" ON "project"."client_id" = "customer_info"."id"
                     WHERE "project"."client_id" = $1;`, [req.params.id])
