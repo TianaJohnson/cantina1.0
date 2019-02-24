@@ -142,7 +142,6 @@ class AddNewCustomer extends Component {
       New Customer Intake:
         <form className="form_newCust" >
         <br/>
-        <br />
           <TextField
             style={{ margin: 10 }}
             className="new-cust-intake"
@@ -216,7 +215,7 @@ class AddNewCustomer extends Component {
                 color="primary"
                 className="addCustBtn"
                 size="large">
-                Add
+                Add Customer
            </Button>
           }
         </form>

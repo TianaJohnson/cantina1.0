@@ -5,25 +5,7 @@ import axios from 'axios';
 // import Button from '@material-ui/core/Button';
 
 class CustomerNotesPage extends Component {
-    constructor(props){
-        super(props);
-        this.state= {
-            customer_notes: '',
-        }
-    }
-
-    custNotes = () => {
-        console.log('Get axios ');
-        axios({
-            method: 'GET',
-            url: `/intake/${this.props.match.params.id}`
-        }).then((response) => {
-            console.log('Get', response);
-            this.setState({
-                customer_notes: response.data.customer_notes,
-            });
-        });
-    }
+    
     //may not need this page..
     render() {
         return (
@@ -31,10 +13,9 @@ class CustomerNotesPage extends Component {
             <Card className="notes_card">
                 <div className="notes_text">
                 <h1>Notes from Build:</h1>
+                <br/>
                 </div>
-                <Card className="notes_notes">
-                <p>Customer intake notes:{this.state.customer_notes}</p>
-                </Card>
+                <br/>
             </Card>
             </div>
         )

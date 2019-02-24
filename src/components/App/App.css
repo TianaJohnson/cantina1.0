@@ -57,20 +57,23 @@ input {
 }
 /* Admin/home page */
 .admin_main {
-
+    margin-Top: auto;
     background-image: url("/images/Peacocktap.JPG");
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 /*  */
 .user_header{
-    font-size: 40px;
+    
+    text-decoration: underline;
+    font-size: 50px;
     text-align: center;
     font-family: 'Vampiro One', cursive;
 }
 
 .admin_card {
-    /* margin-top:20px; */
+    
     opacity: 0.8;  
     margin-left: 50px; 
     margin-right: 50px;
@@ -131,8 +134,9 @@ input {
     /* margin-bottom: 200px; */
 }
 .addcust_text {
+    font-family: 'Vampiro One', cursive;
     margin: 10px;
-    font-size: 30px;
+    font-size: 40px;
     text-decoration: underline;
 }
 .new-cust-intake {
@@ -162,7 +166,7 @@ input {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.build_card, .notes_card {
+.build_card, .notes_card, .contact_card{
     opacity: 0.8;  
     margin-left: 50px; 
     margin-right: 50px;
@@ -188,3 +192,7 @@ input {
     background-size: cover;
     margin-Top: auto;
 }
+.project_contact{
+    background-image: url("/images/lamp1.JPG");
+}
+
