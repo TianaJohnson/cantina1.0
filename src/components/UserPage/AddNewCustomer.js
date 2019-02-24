@@ -134,10 +134,14 @@ class AddNewCustomer extends Component {
 
     return (
       <div className="add_custpage">
-      <Card className="add_table">
-        <form
-          className="form_newCust" >
-          New Customer:
+      <br/>
+      <br/>
+      <Card className="add_card">
+        <form className="form_newCust" >
+        <br/>
+        <div className="addcust_text">
+          New Customer Intake:
+          </div>
         <br />
           <TextField
             style={{ margin: 10 }}
@@ -182,14 +186,15 @@ class AddNewCustomer extends Component {
             value={this.state.phone_number}
             onChange={this.handleChangePhone}
           />
-          <TextField
-            style={{ margin: 10 }}
+          <TextField 
+            // style={{ margin: 10 }}
             className="new-cust-intake"
             id="outline-notes"
             label="notes"
             variant="outlined"
             margin="normal"
             multiline rows="8"
+            fullWidth
             value={this.state.customer_notes}
             onChange={this.handleChangeNotes}
           />
@@ -214,7 +219,10 @@ class AddNewCustomer extends Component {
            </Button>
           }
         </form>
+        
       </Card>
+      <br/>
+      <br/>
       </div>
       // end material ui intake form for new customer
     )

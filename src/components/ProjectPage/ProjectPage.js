@@ -15,8 +15,9 @@ class ProjectPage extends Component {
         // clear any previously selected project
         // this.props.dispatch({ type: 'CLEAR_PROJECT' });
         // get the project we want
+        this.props.dispatch({ type: 'FETCH_CUSTOMER' });
         this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });
-        this.custName();
+        // this.custName();
     }
     //Send project info to saga
     projectIn = (event) => {
@@ -61,18 +62,18 @@ class ProjectPage extends Component {
 
     // make axios request to /intake/${this.props.match.params.id}
     //To display customers name on the file attached to them
-    custName = () => {
-        console.log('Get axios ');
-        axios({
-            method: 'GET',
-            url: `/intake/${this.props.match.params.id}`
-        }).then((response) => {
-            console.log('Get', response);
-            // this.setState({
-            //     customer_name: response.data.customers_full_name,
-            // });
-        });
-    }
+    // custName = () => {
+    //     console.log('Get axios ');
+    //     axios({
+    //         method: 'GET',
+    //         url: `/intake/${this.props.match.params.id}`
+    //     }).then((response) => {
+    //         console.log('Get', response);
+    //         // this.setState({
+    //         //     customer_name: response.data.customers_full_name,
+    //         // });
+    //     });
+    // }
 
     handleChange = (key) => (event) => {
         const action = {
