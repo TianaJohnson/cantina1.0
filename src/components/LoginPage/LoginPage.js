@@ -34,6 +34,8 @@ class LoginPage extends Component {
       <div className="login-page">
       <br/>
       <br/>
+      <br/>
+      <br/>
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -76,6 +78,7 @@ class LoginPage extends Component {
               value="Log In"
             />
           <center>
+            <br/>
           <button
             type="button"
             className="link-button"
@@ -86,6 +89,8 @@ class LoginPage extends Component {
         </center>
         </div>
         </form>
+        <br/>
+        <br/>
         <br/>
         <br/>
       </div>
