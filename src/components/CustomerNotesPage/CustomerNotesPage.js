@@ -6,8 +6,11 @@ import Button from '@material-ui/core/Button';
 
 class CustomerNotesPage extends Component {
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });
-        
+        this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });      
+    }
+    addCustNotesBtn = () => {
+        alert('Sent!');
+        this.props.history.push('/home');
     }
 
     //may not need this page..
@@ -20,10 +23,11 @@ class CustomerNotesPage extends Component {
                         <h1>Notes from Build:</h1>
                         <h2>Current build status: {project.progress_status}</h2>
                         <TextField
-                            id="outlined-height"
+                            id="outlined-notes"
+                            className="new-cust-intake"
                             margin="normal"
                             variant="outlined"
-                            style={{ margin: 30 }}
+                            // style={{ margin:  }}
                             label="Project Notes"
                             multiline rows="8"
                             fullWidth
@@ -35,7 +39,7 @@ class CustomerNotesPage extends Component {
                             style={{ marginLeft: 30 }}
                             variant="contained"
                             color="primary"
-                            className="addCustNotesBtn"
+                            onClick={this.addCustNotesBtn}
                             size="large">
                             Add Note
                         </Button>

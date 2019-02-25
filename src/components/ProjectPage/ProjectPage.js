@@ -51,11 +51,8 @@ class ProjectPage extends Component {
             projected_due_date: '',
             client_id: this.props.match.params.id,
         })
-        // this.props.history.push('/home');
+        this.props.history.push('/home');
     }
-
-
-
     // make axios request to /intake/${this.props.match.params.id}
     // To display customers name on the file attached to them
     // custName = () => {
@@ -172,7 +169,7 @@ class ProjectPage extends Component {
                                 variant="outlined"
                                 style={{ margin: 10 }}
                                 label="Height"
-                                value={project.project_desc}
+                                value={project.cust_height}
                                 onChange={this.handleChange('height')}
                             />
                             <TextField
@@ -266,7 +263,7 @@ class ProjectPage extends Component {
                                 margin="normal"
                                 variant="outlined"
                                 style={{ margin: 10 }}
-                                label="Botom Bracket"
+                                label="Bottom Bracket"
                                 value={project.bottom_bracket}
                                 onChange={this.handleChange('bottom_bracket')}
                             />

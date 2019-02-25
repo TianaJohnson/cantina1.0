@@ -122,14 +122,13 @@ router.put('/archive/:id', (req, res) => {
         const queryText = `UPDATE "customer_info"             
                            SET "is_active" = false 
                            WHERE "id" = $1;`;
-        pool.query(queryText, [ req.body.is_active,
-                                req.params.id])
+        pool.query(queryText, [req.params.id])
             .then(() => {
                 console.log('server side project Put');
                 res.sendStatus(201);
             })
             .catch((error) => {
-                console.log('Something Went wrong in Put', error);
+                console.log('Something Went wrong in Put archive', error);
 
             });
     }

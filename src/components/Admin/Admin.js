@@ -32,7 +32,7 @@ class Admin extends Component {
         <div className="admin_text">
   <UserHeader match={this.props.match} history={this.props.history}/>
   <h1>Customers</h1>
-  <Button variant="outlined"
+  <Button variant="contained"
                color="primary"
                onClick={this.addNew}
                style={{ margin: 10 }}>
