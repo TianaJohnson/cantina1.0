@@ -32,4 +32,5 @@ const customerReducer = (state = [], action) => {
     customerReducer,
     customerFocusReducer,
   });
+  export {customerReducer};
   
