@@ -8,9 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import ProjectPage from './../ProjectPage/ProjectPage';
 import FitDataPage from './../FitDataPage/FitDataPage';
-import BuildStatusPage from './../BuildStatusPage/BuildStatusPage';
+// import BuildStatusPage from './../BuildStatusPage/BuildStatusPage';
 import CustomerNotesPage from './../CustomerNotesPage/CustomerNotesPage';
-import CustomerContactInfo from './../CustomerContactInfo/CustomerContactInfo';
+// import CustomerContactInfo from './../CustomerContactInfo/CustomerContactInfo';
 
 function TabContainer(props) {
     return (

@@ -8,6 +8,7 @@ import './Footer.css'
 
 const Footer = () => (
   <footer>
+    <br/>
     &copy; Cantina Groove
   </footer>
 );

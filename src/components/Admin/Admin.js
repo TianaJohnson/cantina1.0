@@ -10,6 +10,7 @@ import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import AdminRow from './AdminRow';
 import UserHeader from './../userHeader/userHeader';
+// import QrComponent  from './../QrComponent/QrComponent';
 
 
 //Class constructor
@@ -32,6 +33,10 @@ class Admin extends Component {
         <div className="admin_text">
   <UserHeader match={this.props.match} history={this.props.history}/>
   <h1>Customers</h1>
+  {/* <div class="sharethis-inline-share-buttons"></div> */}
+  {/* ^^^ display share icons */}
+  {/* <QrComponent /> */}
+  {/* ^^^ lwads to Qr Reader component */}
   <Button variant="contained"
                color="primary"
                onClick={this.addNew}
