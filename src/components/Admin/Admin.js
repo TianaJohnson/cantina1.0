@@ -10,15 +10,13 @@ import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import AdminRow from './AdminRow';
 import UserHeader from './../userHeader/userHeader';
+import './Admin.css';
 // import QrComponent  from './../QrComponent/QrComponent';
 
 
 //Class constructor
 class Admin extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_CUSTOMER' });
-    // this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });
-  }
+   
 
   // on click of btn, sends user to new customer page
   addNew = () => {
@@ -36,7 +34,8 @@ class Admin extends Component {
   {/* <div class="sharethis-inline-share-buttons"></div> */}
   {/* ^^^ display share icons */}
   {/* <QrComponent /> */}
-  {/* ^^^ lwads to Qr Reader component */}
+  {/* ^^^ links to Qr Reader component */}
+  {/* https://www.npmjs.com/package/react-qr-reader */}
   <Button variant="contained"
                color="primary"
                onClick={this.addNew}

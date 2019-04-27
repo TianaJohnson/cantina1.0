@@ -56,13 +56,13 @@ input {
 
 }
 /* Admin/home page */
-.admin_main {
+/* .admin_main {
     margin-Top: auto;
     background-image: url("/images/Peacocktap.JPG");
     background-repeat: no-repeat;
     background-size: cover;
 
-}
+} */
 /*  */
 .user_header{
     
@@ -72,7 +72,7 @@ input {
     font-family: 'Vampiro One', cursive;
 }
 
-.admin_card {
+/* .admin_card {
     
     opacity: 0.8;  
     margin-left: 50px; 
@@ -80,7 +80,7 @@ input {
 }
 .admin_text {
     margin:20px;
-}
+} */
 /* Add New Customer/ update customer pag */
 .form_newCust {
     opacity: 0.8 ;
