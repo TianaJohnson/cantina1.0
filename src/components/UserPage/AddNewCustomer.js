@@ -7,22 +7,22 @@ import Card from '@material-ui/core/Card';
 
 
 // using this as a template //
-const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-  },
-  dense: {
-    marginTop: 16,
-  },
-  menu: {
-    width: 200,
-  },
-});
+// const styles = theme => ({
+//   container: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//   },
+//   textField: {
+//     marginLeft: theme.spacing.unit,
+//     marginRight: theme.spacing.unit,
+//   },
+//   dense: {
+//     marginTop: 16,
+//   },
+//   menu: {
+//     width: 200,
+//   },
+// });
 
 
 class AddNewCustomer extends Component {
@@ -234,4 +234,4 @@ const mapStateToProps = reduxStore => {
   return { reduxStore: reduxStore };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(AddNewCustomer));
+export default connect(mapStateToProps)(AddNewCustomer);
