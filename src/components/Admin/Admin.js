@@ -43,7 +43,6 @@ class Admin extends Component {
                Add New Customer
                </Button>
   </div> 
-  
 <Paper>
  <Table className="admin_table">
    <TableHead>
@@ -64,6 +63,7 @@ class Admin extends Component {
    </TableBody>
  </Table>
 </Paper>
+
         </Card>
       </div>
 

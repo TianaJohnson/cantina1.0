@@ -2,27 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-
-
-// using this as a template //
-// const styles = theme => ({
-//   container: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   textField: {
-//     marginLeft: theme.spacing.unit,
-//     marginRight: theme.spacing.unit,
-//   },
-//   dense: {
-//     marginTop: 16,
-//   },
-//   menu: {
-//     width: 200,
-//   },
-// });
 
 
 class AddNewCustomer extends Component {
@@ -61,25 +42,25 @@ class AddNewCustomer extends Component {
     }
   }
 
-  //saga post to update/edit current customer info
-  updateCust = (event) => {
-    console.log('update cust');
-    const action = {
-      type: 'UPDATE_CUSTOMER',
-      payload: this.state,
-    };
-    this.props.dispatch(action);
-    this.setState({
-      customers_full_name: '',
-      pro_nouns: '',
-      email: '',
-      phone_number: '',
-      customer_notes: '',
-    })
-    this.props.history.push('/home');
-  }
+  // //saga post to update/edit current customer info
+  // updateCust = (event) => {
+  //   console.log('update cust');
+  //   const action = {
+  //     type: 'UPDATE_CUSTOMER',
+  //     payload: this.state,
+  //   };
+  //   this.props.dispatch(action);
+  //   this.setState({
+  //     customers_full_name: '',
+  //     pro_nouns: '',
+  //     email: '',
+  //     phone_number: '',
+  //     customer_notes: '',
+  //   })
+  //   this.props.history.push('/home');
+  // }
 
-  //Send to saga to create a customer in the data base
+  // //Send to saga to create a customer in the data base
   addCustomer = (event) => {
     console.log('add cust');
     const action = {

@@ -6,12 +6,14 @@ const router = express.Router();
 router.post('/', (req, res, next) => {
     console.log(req.body);
     if (req.isAuthenticated()) {
-        const queryText = `INSERT INTO "customer_info"
-                     ("customers_full_name", 
+        const queryText = `INSERT INTO "client_contact_info"
+                     ("full_name", 
                       "pro_nouns", 
                       "email",
                       "phone_number", 
-                      "customer_notes") 
+                      "cust_notes",
+                      "is_active",
+                      "date_activated") 
                       VALUES ($1, $2, $3, $4, $5) RETURNING "id";`;
         pool.query(queryText, [req.body.customers_full_name,
         req.body.pro_nouns,
