@@ -17,7 +17,18 @@ import './Admin.css';
 //Class constructor
 class Admin extends Component {
    
-
+  constructor(props){
+    super(props);
+    this.state = {
+        is_active: true,
+    }
+}
+//cant hurt to push
+  componentDidMount() {
+    // this.props.dispatch({ type: 'FETCH_FOCUS_CUSTOMER' });
+    // this.custName();
+    this.props.dispatch({ type: 'FETCH_CUSTOMER', payload: { id: this.props.match.params.id } });    
+}
   // on click of btn, sends user to new customer page
   addNew = () => {
     this.props.history.push('/newcustomer');
