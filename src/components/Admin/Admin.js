@@ -23,7 +23,7 @@ class Admin extends Component {
         is_active: true,
     }
 }
-//cant hurt to push
+//maybe just move back to this guy
   componentDidMount() {
     // this.props.dispatch({ type: 'FETCH_FOCUS_CUSTOMER' });
     // this.custName();
