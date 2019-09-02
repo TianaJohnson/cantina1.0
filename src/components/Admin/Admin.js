@@ -17,7 +17,6 @@ import './Admin.css';
 //Class constructor
 class Admin extends Component {
    
-
   // on click of btn, sends user to new customer page
   addNew = () => {
     this.props.history.push('/newcustomer');
