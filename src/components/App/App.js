@@ -15,7 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import AdminPage from '../Admin/Admin';
 // import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+// import InfoPage from '../InfoPage/InfoPage';
 import AddNewCustomer from'./../UserPage/AddNewCustomer';
 // import CustomerFile from './../UserPage/CustomerFile';
 import ProjectPage from './../ProjectPage/ProjectPage';
@@ -55,11 +55,11 @@ class App extends Component {
               path="/home"
               component={AdminPage}
             />
-            <ProtectedRoute
+            {/* <ProtectedRoute
               exact
               path="/info"
               component={InfoPage}
-            />
+            /> */}
             <ProtectedRoute
               exact
               path="/newcustomer"

@@ -2,14 +2,11 @@
     background-image: url("/images/Peacocktap.JPG");
     background-repeat: no-repeat;
     background-size: cover;
-    /* margin: auto; */
     padding: 25px;
 
 }
 .admin_card {   
     opacity: 0.8; 
-    /* margin-left: 50px; 
-    margin-right: 50px; */
     margin: 50px;
 }
 .admin_text {
