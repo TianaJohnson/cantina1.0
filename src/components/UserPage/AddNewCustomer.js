@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 //import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import './AddNewCustomer.css';
 
 
 class AddNewCustomer extends Component {
