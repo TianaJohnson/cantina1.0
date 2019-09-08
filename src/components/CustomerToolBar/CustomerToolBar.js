@@ -50,7 +50,7 @@ class CustomerToolBar extends Component {
                     >
                         <Tab label="Project" />
                         <Tab label="Fit Data" />
-                        <Tab label="Build Status" />
+                        <Tab label="Schedule" />
                         {/* <Tab label="" /> */}
                         {/* <Tab label="Contact Information" /> */}
                     </Tabs>
