@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import { Button, Input, TextField} from '@material-ui/core';
 import axios from 'axios';
 
-import './App.css';
-import { TextField } from '@material-ui/core';
 // import { async } from 'q';
 
 class NodeMailer extends Component {
@@ -47,31 +45,42 @@ class NodeMailer extends Component {
         <h2>Nodemailer Spike 2.0</h2>
         <br/>
         <form onSubmit={this.handleSubmit} style={{ width: '500px'}}>
-          <TextField>
-            <Label>Name: </Label>
-            <Input
-            type="text"
-            name="name"
-            onChange={this.handleChange}
-            />
-          </TextField>
-          <TextField>
-            <Label>Email: </Label>
-            <Input
-            type="text"
-            name="email"
-            onChange={this.handleChange}
-            />
-          </TextField>
-          <TextField>
-            <Label>message: </Label>
-            <Input
-            type="text"
-            name="message"
-            onChange={this.handleChange}
-            />
-          </TextField>
-          <Button>Submit!</Button>
+        <TextField
+          id="outlined-name"
+          style={{ margin: 10 }}
+          label="Name"
+          type="text"
+          onChange={this.handleChange}
+          margin="normal"
+          variant="outlined"
+      />
+          <TextField
+          id="outlined-name"
+          style={{ margin: 10 }}
+          label="E-mail Address"
+          type="text"
+          onChange={this.handleChange}
+          margin="normal"
+          variant="outlined"
+      />
+          <TextField
+          id="outlined-multiline-flexible"
+          style={{ margin: 10 }}
+          label="Message"
+          multiline
+          rowsMax="20"
+          type="text"
+          onChange={this.handleChange}
+          margin="normal"
+          variant="outlined"
+      />
+          <Button
+          style={{ margin: 10 }}
+          variant="contained"
+          color="primary"
+          size="large">
+            Submit!
+            </Button>
 
         </form>
         

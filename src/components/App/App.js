@@ -55,11 +55,6 @@ class App extends Component {
               path="/home"
               component={AdminPage}
             />
-            {/* <ProtectedRoute
-              exact
-              path="/info"
-              component={InfoPage}
-            /> */}
             <ProtectedRoute
               exact
               path="/newcustomer"

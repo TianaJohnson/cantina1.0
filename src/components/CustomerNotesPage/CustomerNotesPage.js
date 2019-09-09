@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import NodeMailer from './../NodeMailer/NodeMailer';
+
+
 class CustomerNotesPage extends Component {
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });      
+        this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });
     }
     addCustNotesBtn = () => {
         alert('Sent!');
@@ -18,6 +21,7 @@ class CustomerNotesPage extends Component {
         return (
             <div className="notes_main">
                 <Card className="notes_card">
+                    <NodeMailer/>
                     <div className="notes_text">
                         <h1>Notes from Build:</h1>
                         <h2>Current build status: {project.progress_status}</h2>

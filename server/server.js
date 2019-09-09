@@ -9,6 +9,7 @@ const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
 // Route includes
+const nodemailer = require('./routes/nodemailer.router');
 const userRouter = require('./routes/user.router');
 const intakeRouter = require('./routes/intake.router');
 const projectRouter = require('./routes/project.router');
@@ -28,6 +29,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/intake', intakeRouter);
 app.use('/project', projectRouter);
+app.use('/nodemailer', nodemailer);
 
 // Serve static files
 app.use(express.static('build'));
