@@ -29,7 +29,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/intake', intakeRouter);
 app.use('/project', projectRouter);
-app.use('/nodemailer', nodemailer);
+app.use('/api/form', nodemailer);
 
 // Serve static files
 app.use(express.static('build'));

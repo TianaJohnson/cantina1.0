@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Input, TextField} from '@material-ui/core';
+import { Button, Card, TextField} from '@material-ui/core';
 import axios from 'axios';
 
 // import { async } from 'q';
@@ -41,8 +41,9 @@ class NodeMailer extends Component {
   render (){
   return (
     <div className="App">
-      <header className="App-header">
-        <h2>Nodemailer Spike 2.0</h2>
+      <Card>
+      {/* <header className="App-header"> */}
+        <h2>Contact Us</h2>
         <br/>
         <form onSubmit={this.handleSubmit} style={{ width: '500px'}}>
         <TextField
@@ -83,9 +84,7 @@ class NodeMailer extends Component {
             </Button>
 
         </form>
-        
-        
-      </header>
+        </Card>
     </div>
   );
 }
