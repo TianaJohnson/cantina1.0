@@ -1,4 +1,8 @@
 
+##Target Info:
+    This is the solo project I built at Prime. I built it for two local buisness owners that needed to share customer information on collaborative custome bicycle builds. I am most proud of the reuse of customer information through id. This can be seen in my `components/UserPage/AddNewCustomer.js`, `redux/reducers/customerReducer.js` and `redux/sagas/customerSaga.js`. It is also used in `components/ProjectPage/ProjectPage.js`, `redux/reducers/projectReducer.js` and `redux/sagas/projectSaga.js`. I also just finally figured out how to impliment Nodemailer into a project outside of a spike. I had some hiccups and its currently not vary prett, but it works and I am stoked on that. To me, this is an incomplete project but it is the project I am most proud of over all. 
+
+
 ## Prerequisites/Software Used
 - Node.js
 - Postico
@@ -42,8 +46,8 @@
 -More detailed intake for customer information.
 -Customer facing side showing progress reports of the build.
 -Actual working communication page.
-- node mailer.
--img upload.
+-img upload. ( being spiked)
+-Sweet Alerts. ( installed, not yet implemented)
 
 ## Deployment
 
@@ -55,3 +59,5 @@
 - We would like to thank Chris Black, Luke Schlangen, and Dane aka DoctorHowser for the base assignment code.
 - We would additionally like to thank Kris Szfranski and Ally Boyd.
 - Thanks to our cohort, Zaurak.
+
+
