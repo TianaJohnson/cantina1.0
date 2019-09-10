@@ -3,7 +3,8 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 
 
-router.post('/api/form', (req,res) =>{
+router.post('/', (req,res) =>{
+    console.log(req.body);
    nodemailer.createTestAccount((err, account) => {
        const htmlEmail = `
        <h3>Contact Details</h3>
@@ -39,7 +40,7 @@ router.post('/api/form', (req,res) =>{
                 return console.log(err)
             }
 
-            console.log('message sent: %s', info.message)
+            console.log('message sent: %s', mailOption.text)
             console.log('Message URL: %s', nodemailer.getTestMessageUrl(info))
         })
    })

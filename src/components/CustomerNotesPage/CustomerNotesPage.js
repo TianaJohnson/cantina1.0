@@ -18,12 +18,13 @@ class CustomerNotesPage extends Component {
     //may not need this page..
     //This page currently doesnt actually do anything, it is just for show.
     //hopefully to be replaced by nodemailer and maybe google calender
+    
     render() {
         const project = this.props.reduxStore.project.projectReducer;
         return (
             <div className="notes_main">
                 <Card className="notes_card">
-                    {/* <NodeMailer/> */}
+                    <NodeMailer/>
                     <div className="notes_text">
                         <h1>Notes from Build:</h1>
                         <h2>Current build status: {project.progress_status}</h2>
