@@ -37,3 +37,14 @@ CREATE TABLE "person" (
 	"wheel_size" VARCHAR (20),
 	"tire_clearance" VARCHAR (20),
 	"client_id" INT REFERENCES "customer_info"("id"));
+
+-- Stock database input --
+INSERT INTO "customer_info"
+                     ("customers_full_name", 
+                      "pro_nouns", 
+                      "email",
+                      "phone_number", 
+                      "customer_notes") 
+                      VALUES ('Jesse Sparkle', 'they/them', 'unknown@mail.com', '(123)456-7890', 'Customer wants the the fastest steel framed bike money can buy.' ) RETURNING "id";
+
+-- This will create a stock "client file" to play around in. --
