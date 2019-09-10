@@ -21,7 +21,8 @@
 ## Screen Shot
 /Users/tianajohnson/Prime/Tier3/Cantina/public/images/Screen shot of dashboard.png
 
-
+## Create Database
+   Create a new database "cantina_app". Input information found in `database.sql`. There is provided stock customer info if need be. 
 
 ## Completed Features
 
