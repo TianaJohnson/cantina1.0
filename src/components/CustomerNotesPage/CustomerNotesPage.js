@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+// import TextField from '@material-ui/core/TextField';
+// import Button from '@material-ui/core/Button';
 import NodeMailer from './../NodeMailer/NodeMailer';
 
 
@@ -25,7 +25,7 @@ class CustomerNotesPage extends Component {
             <div className="notes_main">
                 <Card className="notes_card">
                     <NodeMailer/>
-                    <div className="notes_text">
+                    {/* <div className="notes_text">
                         <h1>Notes from Build:</h1>
                         <h2>Current build status: {project.progress_status}</h2>
                         <TextField
@@ -66,7 +66,7 @@ class CustomerNotesPage extends Component {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lectus libero, laoreet vitae dignissim facilisis, aliquam vitae tortor. Cras dapibus augue at suscipit lacinia. Curabitur odio velit, auctor in pretium quis, varius vitae lectus. Pellentesque sed commodo enim. Nam tincidunt eget tortor vitae dapibus. In tincidunt mi scelerisque, tempus est at, ullamcorper nunc. Sed pharetra dignissim justo, et blandit ligula eleifend ut. Donec iaculis pretium felis. Phasellus eros purus, luctus eget rhoncus id, eleifend ut ex.</p>
                         </Card>
                         <br />
-                    </div>
+                    </div> */}
                     <br />
                 </Card>
             </div>

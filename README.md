@@ -34,6 +34,7 @@
 - Page with a form to collect customer project build information.
 - Communication/ Status page for users to communicate.
 - Page to display image data and build status.
+- Nodemailer implimented. Test email attached.
 
 
 ## Future Features

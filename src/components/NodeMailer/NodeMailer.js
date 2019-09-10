@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card, TextField } from '@material-ui/core';
 import axios from 'axios';
+import './nm.css';
 
 //import async from 'q';
 
@@ -51,9 +52,9 @@ class NodeMailer extends Component {
   render() {
     return (
       <div className="App">
-        <Card>
+        {/* <Card classNmae="mail-card"> */}
           {/* <header className="App-header"> */}
-          <h2>Contact Us</h2>
+          <h2 className="mail-text">Email </h2>
           <br />
           <form
             style={{ width: '500px' }}>
@@ -86,6 +87,9 @@ class NodeMailer extends Component {
               multiline
               rowsMax="20"
               type="text"
+              multiline rows="8"
+              fullWidth
+              margin="normal"
               onChange={this.handleChange}
               margin="normal"
               variant="outlined"
@@ -103,7 +107,7 @@ class NodeMailer extends Component {
             </Button>
 
           </form>
-        </Card>
+        {/* </Card> */}
       </div>
     );
   }
