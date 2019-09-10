@@ -12,8 +12,8 @@ class NodeMailer extends Component {
       email:'',
       message:'',
     }
-    this.handelChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    // this.handelChange = this.handleChange.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
   }
 
 
@@ -22,21 +22,51 @@ class NodeMailer extends Component {
 
   }
 
-  async handleSubmit(e) {
+  // async handleSubmit(e) {
+  //   e.preventDefault();
+  //   e.target.reset();
+  //   // ^This resets the form!!!
+
+  //   const { name, email, message} = this.state
+
+  //   const form = await axios.post('/api/form', {
+  //     name,
+  //     email,
+  //     message,
+  //   })
+  // }
+
+  sendEmail = async (e) => {
     e.preventDefault();
-    e.target.reset();
-    // ^This resets the form!!!
-
-    const { name, email, message} = this.state
-
-    const form = await axios.post('/api/form', {
-      name,
-      email,
-      message,
-    })
-  }
-
-  
+    const { email } = this.state;
+    const response = await axios.post(
+          '/api/form',
+          {
+            name,
+            email,
+            message,
+          },
+        );
+        console.log(response.data);
+        if (response.data === 'recovery email sent') {
+          this.setState({
+            showError: false,
+            messageFromServer: 'recovery email sent',
+            showNullError: false,
+          });
+        }
+      } catch (error) {
+        console.error(error.response.data);
+        if (error.response.data === 'email not in db') {
+          this.setState({
+            showError: true,
+            messageFromServer: '',
+            showNullError: false,
+          });
+        }
+      }
+    }
+  };
 
   render (){
   return (
