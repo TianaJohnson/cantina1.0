@@ -14,7 +14,7 @@ class CustomerNotesPage extends Component {
         alert('Sent!');
         this.props.history.push('/home');
     }
-
+//learn more back end, okay?
     
     render() {
         const project = this.props.reduxStore.project.projectReducer;
