@@ -14,7 +14,7 @@ class CustomerNotesPage extends Component {
         alert('Sent!');
         this.props.history.push('/home');
     }
-/// you gotta do something soon
+// too much personal work not enough code
     
     render() {
         const project = this.props.reduxStore.project.projectReducer;
