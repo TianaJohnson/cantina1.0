@@ -16,53 +16,54 @@ import './Admin.css';
 
 //Class constructor
 class Admin extends Component {
-   
+
   // on click of btn, sends user to new customer page
   addNew = () => {
     this.props.history.push('/newcustomer');
   }
+
   // table display of all customers currentlt 02/16/19
   // eventually will display customer name and project file name
   render() {
     return (
       <div className="admin_main">
         <Card className="admin_card">
-        <div className="admin_text">
-  <UserHeader match={this.props.match} history={this.props.history}/>
-  <h1>Customers</h1>
-  {/* <div class="sharethis-inline-share-buttons"></div> */}
-  {/* ^^^ display share icons */}
-  {/* <QrComponent /> */}
-  {/* ^^^ links to Qr Reader component */}
-  {/* https://www.npmjs.com/package/react-qr-reader */}
-  <Button variant="contained"
-               color="primary"
-               onClick={this.addNew}
-               style={{ margin: 10 }}>
-               Add New Customer
+          <div className="admin_text">
+            <UserHeader match={this.props.match} history={this.props.history} />
+            <h1>Customers</h1>
+            {/* <div class="sharethis-inline-share-buttons"></div> */}
+            {/* ^^^ display share icons */}
+            {/* <QrComponent /> */}
+            {/* ^^^ links to Qr Reader component */}
+            {/* https://www.npmjs.com/package/react-qr-reader */}
+            <Button variant="contained"
+              color="primary"
+              onClick={this.addNew}
+              style={{ margin: 10 }}>
+              Add New Customer
                </Button>
-  </div> 
-  
-<Paper>
- <Table className="admin_table">
-   <TableHead>
-     <TableRow>
-       <TableCell>Customer Name</TableCell>
-       <TableCell>Phone</TableCell>
-       <TableCell>Edit Customer Info</TableCell>
-       <TableCell>View/Edit</TableCell>
-       <TableCell></TableCell>
-     </TableRow>
-   </TableHead>
-   <TableBody>
-         {this.props.reduxStore.addCust.customerReducer.map(client =>
-           <AdminRow key={client.id} history={this.props.history} client={client}/>
-         )}
-         
-       
-   </TableBody>
- </Table>
-</Paper>
+          </div>
+
+          <Paper>
+            <Table className="admin_table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Customer Name</TableCell>
+                  <TableCell>Phone</TableCell>
+                  <TableCell>Edit Customer Info</TableCell>
+                  <TableCell>View/Edit</TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {this.props.reduxStore.addCust.customerReducer.map(client =>
+                  <AdminRow key={client.id} history={this.props.history} client={client} />
+                )}
+
+
+              </TableBody>
+            </Table>
+          </Paper>
         </Card>
       </div>
 

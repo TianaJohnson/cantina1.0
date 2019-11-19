@@ -97,7 +97,7 @@ router.put('/update/:id', (req, res) => {
                                  "phone_number" = $4,
                                  "customer_notes" = $5
                              WHERE "id" = $6;`;
-        pool.query(queryText, [req.body.customers_full_name,
+        pool.query(queryText, [req.body.builder_name,
                                 req.body.pro_nouns,
                                 req.body.email,
                                 req.body.phone_number,
